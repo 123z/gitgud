@@ -25,12 +25,17 @@ SECRET_KEY = '7-%$prlpz7ks#q5@^tez&z14af()3v+63m07ywqnb%bklikuha'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+                #'10.0.0.62',
+                #'101.177.177.183',
+                 ]
+
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'AusCities.apps.AuscitiesConfig',
     'polls.apps.PollsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -55,7 +60,7 @@ ROOT_URLCONF = 'project299.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -79,7 +84,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'db299',
         'USER': 'root',
-        'PASSWORD': 'admin',
+        'PASSWORD': '64bitComp',
         'HOST': 'localhost'
     }
 }
