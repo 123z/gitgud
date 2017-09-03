@@ -1,0 +1,67 @@
+/*
+	Footer
+*/
+div.footer {
+	background-color: lightgrey;
+	border-top: black solid 2px;
+	position: absolute;
+	bottom: 0;
+	left:0;
+	right:0;
+	padding: 25px;
+	display: block;
+}
+/*
+	Header
+*/
+ul.menu {
+	width:100%;
+	position: absolute;
+	display: block;
+	top:0;
+	left:0;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: grey;
+}
+li.menu {
+	float: left;
+}
+a.head {
+	background-color: grey;
+	color: black;
+	font-size: 30;
+	font-weight: bold;
+	text-decoration: none;
+	padding: 14px 16px;
+	display:block;
+}
+a.head::first-letter {
+	font-size: 45;
+	text-align: center;
+	margin: auto;
+}
+a.menu {
+	display: block;
+	color: black;
+	padding: 14px 16px;
+	text-align: center;
+	text-decoration: none;
+	background-color: grey;
+	font-weight: bold;
+	border-color: black;
+	margin:auto;
+	height: 100%;
+}
+
+a.menu:hover {
+	color: white;
+	background-color: #123123;
+}
+
+
+div.pushdown {
+	margin-top: 100px;
+}
