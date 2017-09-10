@@ -32,17 +32,15 @@ li.menu {
 a.head {
 	background-color: grey;
 	color: black;
-	font-size: 30;
-	font-weight: bold;
 	text-decoration: none;
+	font-weight: bold;
 	padding: 14px 16px;
 	display:block;
+	margin:auto;
+	height: 100%;
+	border-right: 1px black solid;
 }
-a.head::first-letter {
-	font-size: 45;
-	text-align: center;
-	margin: auto;
-}
+
 a.menu {
 	display: block;
 	color: black;
@@ -54,6 +52,7 @@ a.menu {
 	border-color: black;
 	margin:auto;
 	height: 100%;
+	border-right: 1px black solid;
 }
 
 a.menu:hover {
