@@ -1,0 +1,19 @@
+{% load static %}
+
+<head>
+<link rel="stylesheet" type="text/css" href="{% static 'auscities/style.css' %}" />
+
+</head>
+
+<body>
+	{% include "auscities/header.html" %}
+	<div class="pushdown">
+		<form action="/auscities/" method="post">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<input type="submit" value="login"/>
+		</form>
+	</div>
+	{% include "auscities/footer.html" %}
+</body>
+

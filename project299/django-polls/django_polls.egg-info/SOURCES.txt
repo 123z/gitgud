@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.py
+django_polls.egg-info/PKG-INFO
+django_polls.egg-info/SOURCES.txt
+django_polls.egg-info/dependency_links.txt
+django_polls.egg-info/top_level.txt
+polls/static/polls/style.css
+polls/static/polls/images/background.gif
+polls/templates/polls/details.html
+polls/templates/polls/index.html
+polls/templates/polls/results.html
