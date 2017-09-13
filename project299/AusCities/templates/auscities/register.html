@@ -7,7 +7,8 @@
 	<div class="pushdown">
 		<form action="/auscities/register/" method="post">
 		{% csrf_token %}
-		<p>
+		{{ form.as_p}} 
+		<!-- <p>
 		{{ form.username.label }}
 		{{ form.username }}
 		</p>
@@ -22,11 +23,13 @@
 		<p>
 		{{ form.userType.label }}
 		{{ form.userType }}
+		{{ from.usertype }}
 		</p>
 		<p>
 		{{ form.email.label }}
 		{{ form.email }}
-		</p>
+		</p> -->
+
 		<input type="submit" value="Register"/>
 		</form>
 	</div>

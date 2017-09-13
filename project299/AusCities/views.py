@@ -5,7 +5,7 @@ from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
 
-from .forms import LoginForm, UserForm
+from .forms import LoginForm, UserForm, UserForm2
 from .models import UserType
 
 # Create your views here.
@@ -25,6 +25,14 @@ def login(request):
 
 def register(request):
     form = UserForm(request.POST or None)
+    if form.is_valid():
+        instance = form.save()
+        instance.save()
+        return HttpResponseRedirect('/auscities/')
+    return render(request, 'auscities/register.html', {'form':form})
+
+def register2(request):
+    form = UserForm2(request.POST or None)
     if form.is_valid():
         instance = form.save()
         instance.save()
