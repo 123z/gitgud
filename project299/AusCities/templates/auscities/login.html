@@ -8,10 +8,10 @@
 <body>
 	{% include "auscities/header.html" %}
 	<div class="pushdown">
-		<form action="/auscities/" method="post">
+		<form action="/auscities/login/" method="post">
 		{% csrf_token %}
 		{{ form.as_p }}
-		<input type="submit" value="login"/>
+		<input type="submit" value="Login"/>
 		</form>
 	</div>
 	{% include "auscities/footer.html" %}
