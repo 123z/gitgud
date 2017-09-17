@@ -1,7 +1,12 @@
 /*b C6C7BF
 h A4ABB0
 tb 4D596E
-foot white*/
+foot EBECED
+CBC5C1
+3E3E3B
+A2AAB0
+*/
+
 /*
 	Footer
 */
@@ -19,9 +24,15 @@ input {
 	border: none;
 	padding: 3px;
 	padding-left: 10px;
+
 }
 input[type=submit] {
 	padding: 12px;
+	cursor: pointer;
+		left: 50%;
+}
+input[type=submit]:hover {
+	background-color: #3E3E3B;
 }
 select {
 	background-color: #4D596E;
@@ -31,6 +42,11 @@ select {
 	border: none;
 	padding: 3px;
 	padding-left: 10px;
+}
+label {
+	display:block;
+	//margin-right:30px;
+	//text-align: center;
 }
 
 div.footer {
@@ -90,7 +106,7 @@ a.menu {
 
 a.menu:hover {
 	color: white;
-	background-color: #123123;
+	background-color: #3E3E3B;
 }
 
 
