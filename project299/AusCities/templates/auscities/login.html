@@ -10,10 +10,14 @@
 	<div class="pushdown">
 		<form action="/auscities/login/" method="post">
 		{% csrf_token %}
+		{% if not request.session.logged %}
 		{{ form.as_p }}
 		<input type="submit" value="Login"/>
+		{% elif request.session.logged %}
+		</p>You are already logged in.
+		Username: {{ request.session.user }}
+		{% endif %}
 		</form>
 	</div>
-	{% include "auscities/footer.html" %}
 </body>
-
+{% include "auscities/footer.html" %}

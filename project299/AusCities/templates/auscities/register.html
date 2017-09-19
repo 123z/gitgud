@@ -5,10 +5,10 @@
 <body>
 	{% include "auscities/header.html" %}
 	<div class="pushdown">
+	{% if not request.session.logged %}
 		<form action="/auscities/register/" method="post">
 		{% csrf_token %}
-		<p>{{ form.non_field_errors.as_text }} </p>
-		<!-- {{ form.as_p}} --> 
+		<p>{{ form.non_field_errors|striptags }} </p>
 		<p>
 		{{ form.username.label_tag }}
 		{{ form.username }}
@@ -34,6 +34,9 @@
 		{% endfor %}
 		<input type="submit" value="Register"/>
 		</form>
+	{% elif request.session.logged %}
+		Logout to create a new account.
+	{% endif %}
 	</div>
-	{% include "auscities/footer.html" %}
 </body>
+	{% include "auscities/footer.html" %}

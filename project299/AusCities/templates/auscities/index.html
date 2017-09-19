@@ -5,7 +5,12 @@
 <body>
 	{% include "auscities/header.html" %}
 	<div class="pushdown">
-		<p />hello
+		{% if request.session.logged %}
+		<p />Welcome {{ request.session.user }}.
+		<p/> You're a {{ request.session.type }}
+		{% elif not request.session.logged %}
+		hello
+		{% endif %}
 	</div>
-{% include "auscities/footer.html" %}
 </body>
+	{% include "auscities/footer.html" %}
