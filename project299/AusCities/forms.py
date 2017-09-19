@@ -1,8 +1,10 @@
 import logging
 from django import forms
 from django.forms import ModelForm
+from django.contrib.auth import hashers
 
 from .models import User, User2
+from .models import UserType, User
 #Model form for use of databases elements in the form
     
 class LoginModel(ModelForm):
