@@ -1,66 +1,59 @@
-/*b C6C7BF
-h A4ABB0
-tb 4D596E
-foot EBECED
-CBC5C1
-3E3E3B
-A2AAB0
-*/
-
 /*
-	Footer
-*/
-
+	Start footer
+*/	
+.footer {
+	border-top: black solid 1px;
+	padding: 25px;
+	display: block;
+	width: 100%;
+}
+/** End footer **/
+/** Start body **/
 body {
 	background-color: #C6C7BF;
 	color: #3C3D3B;
+	padding-left: 3rem;
+	padding-right: 7rem;
+	padding-top: 3.5rem;
 }
-
-input {
+/** End body **/
+/** 
+	Start input
+	eg. textboxes, buttons etc
+ **/
+input, select {
 	background-color: #4D596E;
 	color: white;
 	box-sizing: border-box;
 	border-radius: 4px;
 	border: none;
-	padding: 3px;
+	padding: 6px;
 	padding-left: 10px;
+	margin-left: 1rem;
 
+}
+input[type=text]:valid, input[type=email]:valid {
+	box-shadow: 0 0 5px green;
 }
 input[type=submit] {
-	padding: 12px;
+	width: 100px;
+	padding: 7px;
 	cursor: pointer;
-		left: 50%;
+	margin-left: 6rem;
 }
-input[type=submit]:hover {
-	background-color: #3E3E3B;
-}
-select {
-	background-color: #4D596E;
-	color: white;
-	box-sizing: border-box;
-	border-radius: 4px;
-	border: none;
-	padding: 3px;
-	padding-left: 10px;
-}
-label {
-	display:block;
-	//margin-right:30px;
-	//text-align: center;
+input:hover, select:hover {
+	box-shadow: 0px 0px 5px #3E3E3B;
 }
 
-div.footer {
-	background-color: white;
-	border-top: black solid 2px;
-	position: absolute;
-	bottom: 0;
-	left:0;
-	right:0;
-	padding: 25px;
-	display: block;
+/** End input **/
+
+label {
+	display:block;
 }
+
+
 /*
-	Header
+	Start header
 */
 ul.menu {
 	width:100%;
@@ -73,10 +66,13 @@ ul.menu {
 	padding: 0;
 	overflow: hidden;
 	background-color: #A4ABB0;
-	border-bottom: 1px black solid;
+	box-shadow: 1px 3px 5px #888888;
 }
 li.menu {
 	float: left;
+}
+li.logout {
+	float:right;
 }
 a.head {
 	background-color: #A4ABB0;
@@ -87,7 +83,6 @@ a.head {
 	display:block;
 	margin:auto;
 	height: 100%;
-	border-right: 1px black solid;
 }
 
 a.menu {
@@ -101,15 +96,11 @@ a.menu {
 	border-color: grey;
 	margin:auto;
 	height: 100%;
-	border-right: 1px black solid;
 }
+	
 
 a.menu:hover {
 	color: white;
 	background-color: #3E3E3B;
 }
-
-
-div.pushdown {
-	margin-top: 100px;
-}
+/** End header **/

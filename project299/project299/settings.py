@@ -26,13 +26,15 @@ SECRET_KEY = '7-%$prlpz7ks#q5@^tez&z14af()3v+63m07ywqnb%bklikuha'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-                '10.0.0.62',
-                   '124.183.83.175',
+               # '10.0.0.62',
+                #   '124.183.83.175',
                  ]
 
 
 
 # Application definition
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
 
 INSTALLED_APPS = [
     'AusCities.apps.AuscitiesConfig',
@@ -84,7 +86,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'db299',
         'USER': 'root',
-        'PASSWORD': '64bitComp',
+        'PASSWORD': 'admin',
         'HOST': 'localhost'
     }
 }
