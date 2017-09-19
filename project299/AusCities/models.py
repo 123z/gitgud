@@ -45,7 +45,7 @@ class UserType(models.Model):
 class User(models.Model):
     userType = models.ForeignKey(UserType, on_delete=models.CASCADE, default = 1)
     username = models.CharField(max_length=50)
-    password = models.CharField(max_length=50)
+    password = models.CharField(max_length=300)
     email = models.EmailField(max_length=150)
     def __str__(self):
             return self.username
