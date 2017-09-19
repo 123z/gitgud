@@ -6,7 +6,7 @@ from django.views import generic
 from django.utils import timezone
 
 from .forms import LoginModel, RegisterForm, RegisterForm2
-from .models import UserType
+from .models import UserType, User
 
 # Create your views here.
 def index(request):
@@ -15,13 +15,16 @@ def index(request):
 def logout(request):
     request.session.delete()
     return HttpResponseRedirect('/auscities/')
+
 def login(request):
         form = LoginModel(request.POST or None)
         if form.is_valid():
-            user = form.save(commit=False)
+            instance = form.save(commit=False)
+            user = User.objects.get(username__iexact=instance.username)
             request.session['logged'] = 1
             request.session['user'] = user.username
             request.session['type'] = user.userType.__str__()
+            logging.debug(request.session['type'])
             return HttpResponseRedirect('/auscities/')
         return render(request, 'auscities/login.html/', {'form':form})
 
@@ -32,6 +35,7 @@ def register(request):
         request.session['logged'] = 1
         request.session['user'] = user.username
         request.session['type'] = user.userType.__str__()
+        user.password = hashers.make_password(user.password)
         user.save()
         return HttpResponseRedirect('/auscities/')
     return render(request, 'auscities/register.html', {'form':form})
