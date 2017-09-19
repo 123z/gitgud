@@ -16,9 +16,12 @@ class LoginModel(ModelForm):
     def clean(self):
         cleanedData = super(LoginModel, self).clean()
         cUsername = cleanedData.get("username")
-        cPassword = cleanedData.get("password")
         try:
-            User.objects.get(username__iexact=cUsername, password__exact=cPassword)
+            user = User.objects.get(username__iexact=cUsername)
+            if hashers.check_password(cleanedData.get("password"), user.password):
+                logging.debug(user.userType)
+            else:
+                raise forms.ValidationError("Username or password incorrect")
         except User.DoesNotExist:
             raise forms.ValidationError("Username or password incorrect")
             
