@@ -8,30 +8,7 @@
 	{% if not request.session.logged %}
 		<form action="/auscities/register/" method="post">
 		{% csrf_token %}
-		<p>{{ form.non_field_errors|striptags }} </p>
-		<p>
-		{{ form.username.label_tag }}
-		{{ form.username }}
-		</p>
-		<p>
-		{{ form.password.label_tag }}
-		{{ form.password }}
-		</p>
-		<p>
-		{{ form.confirm.label_tag }}
-		{{ form.confirm }}
-		</p>
-		<p>
-		{{ form.userType.label_tag }}
-		{{ form.userType }}
-		</p>
-		<p>
-		{{ form.email.label_tag }}
-		{{ form.email }}
-		</p>
-		{% for field in form %}
-		<p>{{ field.errors.as_text }}</p>
-		{% endfor %}
+		{{ form.as_p}}
 		<input type="submit" value="Register"/>
 		</form>
 	{% elif request.session.logged %}
