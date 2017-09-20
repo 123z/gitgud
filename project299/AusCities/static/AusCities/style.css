@@ -30,16 +30,17 @@ input, select {
 	padding: 6px;
 	padding-left: 10px;
 	margin-left: 1rem;
+	width:12rem;
 
 }
-input[type=text]:valid, input[type=email]:valid {
+input[type=email]:valid {
 	box-shadow: 0 0 5px green;
 }
 input[type=submit] {
-	width: 100px;
+	width: 95px;
 	padding: 7px;
 	cursor: pointer;
-	margin-left: 6rem;
+	margin-left: 7rem;
 }
 input:hover, select:hover {
 	box-shadow: 0px 0px 5px #3E3E3B;

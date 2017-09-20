@@ -6,7 +6,7 @@ from django.views import generic
 from django.utils import timezone
 from django.contrib.auth import hashers
 
-from .forms import LoginModel, RegisterForm, RegisterForm2
+from .forms import LoginModel, RegisterForm
 from .models import UserType, User
 
 # Create your views here.
@@ -21,10 +21,10 @@ def login(request):
         form = LoginModel(request.POST or None)
         if form.is_valid():
             instance = form.save(commit=False)
-            user = User.objects.get(username__iexact=instance.username)
+            user = User.objects.get(emailaddress__iexact=instance.emailaddress)
             request.session['logged'] = 1
-            request.session['user'] = user.username
-            request.session['type'] = user.userType.__str__()
+            request.session['user'] = user.emailaddress
+            request.session['type'] = user.usertype
             logging.debug(request.session['type'])
             return HttpResponseRedirect('/auscities/')
         return render(request, 'auscities/login.html/', {'form':form})
@@ -34,17 +34,9 @@ def register(request):
     if form.is_valid():
         user = form.save()
         request.session['logged'] = 1
-        request.session['user'] = user.username
-        request.session['type'] = user.userType.__str__()
+        request.session['user'] = user.emailaddress
+        request.session['type'] = user.usertype
         user.password = hashers.make_password(user.password)
         user.save()
-        return HttpResponseRedirect('/auscities/')
-    return render(request, 'auscities/register.html', {'form':form})
-
-def register2(request):
-    form = RegisterForm2(request.POST or None)
-    if form.is_valid():
-        instance = form.save()
-        instance.save()
         return HttpResponseRedirect('/auscities/')
     return render(request, 'auscities/register.html', {'form':form})
