@@ -7,7 +7,7 @@ from django.utils import timezone
 from django.contrib.auth import hashers
 
 from .forms import LoginModel, RegisterForm
-from .models import UserType, User
+from .models import UserType, User, Location
 
 # Create your views here.
 def index(request):
@@ -40,3 +40,10 @@ def register(request):
         user.save()
         return HttpResponseRedirect('/auscities/')
     return render(request, 'auscities/register.html', {'form':form})
+	
+def result(request):
+    location_info = Location.objects.all()
+    context = {
+        'location_info': location_info,
+    }
+    return render(request, 'auscities/result.html', context)

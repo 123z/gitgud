@@ -26,15 +26,14 @@ SECRET_KEY = '7-%$prlpz7ks#q5@^tez&z14af()3v+63m07ywqnb%bklikuha'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-               # '10.0.0.62',
-                #   '124.183.83.175',
+                '10.0.0.62',
+                   '124.183.83.175',
+				   '127.0.0.1',
                  ]
 
 
 
 # Application definition
-
-SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
 
 INSTALLED_APPS = [
     'AusCities.apps.AuscitiesConfig',
@@ -84,9 +83,9 @@ WSGI_APPLICATION = 'project299.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'db299',
+        'NAME': 'smartctiy',
         'USER': 'root',
-        'PASSWORD': 'admin',
+        'PASSWORD': 'secret',
         'HOST': 'localhost'
     }
 }
