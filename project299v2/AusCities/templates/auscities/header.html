@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<div id="header">
+		<h1> <a href="/" >Smart City</a></h1>
+	</div>
+	<div class="dropdown" id="menu">
+		<i class="material-icons">menu</i>
+		<div class="dropdown-content">
+			{% if not request.session.logged %}
+			<a href="/login/" class="menu"> Login </a>
+			<a href="/register/" class="menu"> Register </a>
+			{% elif request.session.logged %}
+			<a href="/result/" class="menu"> Locations </a>
+			<a href="/help/" class="menu"> Help </a>
+			<a href="/maps/" class="menu"> Maps </a>
+			<a href="/logout/" class="menu"> Log out </a>
+			{% endif %}
+		</div>
+	</div>
