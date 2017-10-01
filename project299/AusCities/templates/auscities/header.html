@@ -1,13 +1,18 @@
-
-	<ul class="menu">
-		<li class="menu"><a href="/auscities/" class="head">WEBSITE</a></li>
-		{% if not request.session.logged %}
-		<li class="menu"><a href="/auscities/login/" class="menu"> Login </a></li>
-		<li class="menu"><a href="/auscities/register/" class="menu"> Register </a></li>
-		{% elif request.session.logged %}
-		<li class="menu"><a href="/auscities/location/" class="menu"> Locations </a></li>
-		<li class="menu"><a href="/auscities/help/" class="menu"> Help </a></li>
-		<li class="menu"><a href="/auscities/maps/" class="menu"> Maps </a></li>
-		<li class="logout"><a href="/auscities/logout/" class="menu"> Log out </a></li>
-		{% endif %}
-	</ul>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<div id="header">
+		<h1> <a href="/" >Smart City</a></h1>
+	</div>
+	<div class="dropdown" id="menu">
+		<i class="material-icons">menu</i>
+		<div class="dropdown-content">
+			{% if not request.session.logged %}
+			<a href="/login/" class="menu"> Login </a>
+			<a href="/register/" class="menu"> Register </a>
+			{% elif request.session.logged %}
+			<a href="/result/" class="menu"> Locations </a>
+			<a href="/help/" class="menu"> Help </a>
+			<a href="/maps/" class="menu"> Maps </a>
+			<a href="/logout/" class="menu"> Log out </a>
+			{% endif %}
+		</div>
+	</div>

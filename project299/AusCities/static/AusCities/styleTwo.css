@@ -7,6 +7,7 @@ CBC5C1
 A2AAB0
 */
 
+
 /*
 	Footer
 */
@@ -32,58 +33,109 @@ body {
 	background-color: #A4ABB0;
 	color: white;
 	text-align: center;
-	margin-top: 0px;
-	padding: 20px 0px;
-	margin-bottom: 0px;
+	margin-top: 0;
+	padding: 1rem 0;
+	margin-bottom: 0;
+	
 }
-
+#header a {
+	text-decoration: none;
+	color: white;
+}
 #header h3 {
-	padding-top: 1%;
-	padding-bottom: 1%;
+	padding-top: 2rem;
+	padding-bottom: 1rem;
 	background-color: #4D596E;
 	color: white;
 	text-align: center;
-	margin-top: 0px;
+	margin-top: 3rem;
 }
 
 #menu {
-	position: absolute;
 	display: block;
-	top: 0;
+	top: 1rem;
 	right: 0;
-	overflow: hidden;
+	overflow: auto;
 	background-color: #A4ABB0;
-	margin-right: 5%;
+	margin-right: 5rem;
+	color: white;
+	cursor: pointer;
 }
 
 #menu a {
 	display: block;
-	padding: 30px 16px;
-	text-align: center;
 	text-decoration: none;
 	background-color: #A4ABB0;
 	font-weight: bold;
 	margin: auto;
 	height: 100%;
-	float: left;
 	color: white;
+}
+
+#welcome {
+	display: block;
+	font-weight: bold;
+	text-align: center;
+	margin-left: 25%;
+	margin-top: 10rem;
+	width:50%;
+}
+
+#welcome a {
+	display:block;
+	background-color: #4D596E;
+	border-radius: 4px;
+	text-decoration: none;
+	color: white;
+	padding: 25px;
 }
 
 #menu a:hover {
 	background-color: #4D596E;
 }
 
+.dropdown i {
+	font-size: 35px;
+	
+}
+.dropdown {
+    position: fixed;
+    display: inline-block;
+    float:right;
+   	margin-right: 10px;
+    z-index: 1;
+}
+
+.dropdown-content {
+	display: none;
+	border-radius: 4px;
+    position: fixed;
+    background-color: #C6C7BF;
+    min-width: 90px;
+    box-shadow: 0px 0px 5px #3E3E3B;
+    padding: 5px 7px;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+
+
 #content {
-	width: 75%;
-	margin-left: 12.5%;
-	margin-top: 220px;
-	//background-color: white;
+	width: 50rem;
+	margin-top: 8rem;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #loginForm {
-	width: 30%;
-	margin-left: 35%;
-	margin-top: 80px;
+	width: 50rem;
+	text-align:center;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 8rem;
 }
 
 table {
@@ -122,7 +174,7 @@ td a:hover {
 	text-decoration: underline;
 }
 
-input {
+input, select {
 	background-color: #4D596E;
 	color: white;
 	border-radius: 4px;
@@ -131,7 +183,7 @@ input {
 	padding: 2%;
 	margin-bottom: 2%;
 	margin-top: 2%;
-	width: 100%;
+	width: 50%;
 	box-sizing: border-box;
 	font-family: 'Montserrat', sans-serif;
 
@@ -145,83 +197,20 @@ input[type=submit]:hover {
 	background-color: #3E3E3B;
 }
 
-
-select {
-	background-color: #4D596E;
-	color: white;
-	box-sizing: border-box;
-	border-radius: 4px;
-	border: none;
-	padding: 3px;
-	padding-left: 10px;
+input:hover, select:hover {
+	box-shadow: 0px 0px 5px #3E3E3B;
 }
 label {
 	display:block;
-	//margin-right:30px;
-	//text-align: center;
 }
 
 #footer {
 	background-color: white;
-	position: absolute;
 	bottom: 0;
 	left:0;
 	right:0;
-	padding: 25px;
+	width: 100%;
+	padding: 25px 0;
 	display: block;
-}
-/*
-	Header
-
-ul.menu {
-	width:100%;
 	position: absolute;
-	display: block;
-	top:0;
-	left:0;
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-	background-color: #A4ABB0;
-	border-bottom: 1px black solid;
 }
-li.menu {
-	float: left;
-}
-a.head {
-	background-color: #A4ABB0;
-	color: #3C3D3B;
-	text-decoration: none;
-	font-weight: bold;
-	padding: 14px 16px;
-	display:block;
-	margin:auto;
-	height: 100%;
-	border-right: 1px black solid;
-}
-
-a.menu {
-	display: block;
-	color: #3C3D3B;
-	padding: 14px 16px;
-	text-align: center;
-	text-decoration: none;
-	background-color: #A4ABB0;
-	font-weight: bold;
-	border-color: grey;
-	margin:auto;
-	height: 100%;
-	border-right: 1px black solid;
-}
-
-a.menu:hover {
-	color: white;
-	background-color: #3E3E3B;
-}
-
-
-div.pushdown {
-	margin-top: 100px;
-}
-*/

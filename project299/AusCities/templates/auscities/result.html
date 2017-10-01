@@ -3,29 +3,19 @@
 {% load static %}
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="{% static 'auscities/styleTwo.css' %}" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{% static 'auscities/styleTwo.css' %}" />
 
-<title>Smart City</title>
+	<title>Smart City</title>
 </head>
 
 
 <body>
-
 	<div id="header">
-		<h1>WEBSITE</h1>
 		<h3>Results</h3>
 	</div>
-	
-	<div id="menu">
-		<a href="/auscities/login/"> Login </a>
-		<a href="/auscities/register/"> Register </a>
-		<a href="/auscities/about/"> About </a>
-		<a href="/auscities/help/"> Help </a>
-		<a href="/auscities/maps/"> Maps </a>
-	</div>
-	
+	{% include "auscities/header.html" %}
 	<div id="content">
 		<table>
 			<th>name</th>
@@ -48,10 +38,8 @@
 		</table>	
 	</div>
 	
-	<div id="footer">
-		Hello there
-	</div>
 	
+	{% include "auscities/footer.html" %}
 </body>
 </html>
 
