@@ -1,19 +1,30 @@
+<!DOCTYPE HTML>
+<html>
 {% load static %}
 <head>
-	<link rel="stylesheet" type="text/css" href="{% static 'auscities/style.css' %}" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{% static 'auscities/styleTwo.css' %}" />
+
+	<title>Smart City</title>
 </head>
+
 <body>
-	{% include "auscities/header.html" %}
-	<div class="pushdown">
-	{% if not request.session.logged %}
-		<form action="/auscities/register/" method="post">
-		{% csrf_token %}
-		{{ form.as_p}}
-		<input type="submit" value="Register"/>
-		</form>
-	{% elif request.session.logged %}
-		Logout to create a new account.
-	{% endif %}
+	<div id="header">
+			<h3> Register </h3>
 	</div>
-</body>
+	{% include "auscities/header.html" %}
+	<div id="loginForm">
+			{% if not request.session.logged %}
+				<form action="/register/" method="post">
+				{% csrf_token %}
+				{{ form.as_table}}
+				<input type="submit" value="Register"/>
+				</form>
+			{% elif request.session.logged %}
+				Logout to create a new account.
+			{% endif %}
+	</div>
 	{% include "auscities/footer.html" %}
+</body>
+	</html>

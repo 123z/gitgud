@@ -7,7 +7,7 @@ from django.utils import timezone
 from django.contrib.auth import hashers
 
 from .forms import LoginModel, RegisterForm
-from .models import UserType, User
+from .models import UserType, User, Location
 
 # Create your views here.
 def index(request):
@@ -15,7 +15,7 @@ def index(request):
 
 def logout(request):
     request.session.delete()
-    return HttpResponseRedirect('/auscities/')
+    return HttpResponseRedirect('/')
 
 def login(request):
         form = LoginModel(request.POST or None)
@@ -26,7 +26,7 @@ def login(request):
             request.session['user'] = user.emailaddress
             request.session['type'] = user.usertype
             logging.debug(request.session['type'])
-            return HttpResponseRedirect('/auscities/')
+            return HttpResponseRedirect('/')
         return render(request, 'auscities/login.html/', {'form':form})
 
 def register(request):
@@ -38,5 +38,12 @@ def register(request):
         request.session['type'] = user.usertype
         user.password = hashers.make_password(user.password)
         user.save()
-        return HttpResponseRedirect('/auscities/')
+        return HttpResponseRedirect('/')
     return render(request, 'auscities/register.html', {'form':form})
+	
+def result(request):
+    location_info = Location.objects.all()
+    context = {
+        'location_info': location_info,
+    }
+    return render(request, 'auscities/result.html', context)

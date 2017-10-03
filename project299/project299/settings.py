@@ -26,19 +26,17 @@ SECRET_KEY = '7-%$prlpz7ks#q5@^tez&z14af()3v+63m07ywqnb%bklikuha'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-               # '10.0.0.62',
-                #   '124.183.83.175',
+                '10.0.0.62',
+                   '124.183.236.86',
+				   '127.0.0.1',
                  ]
 
 
 
 # Application definition
 
-SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
-
 INSTALLED_APPS = [
     'AusCities.apps.AuscitiesConfig',
-    'polls.apps.PollsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

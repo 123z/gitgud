@@ -125,14 +125,16 @@ body {
 
 #content {
 	width: 50rem;
-	margin-left: 35%;
 	margin-top: 8rem;
-	//margin-right: 25%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #loginForm {
 	width: 50rem;
-	margin-left: 35%;
+	text-align:center;
+	margin-left: auto;
+	margin-right: auto;
 	margin-top: 8rem;
 }
 
