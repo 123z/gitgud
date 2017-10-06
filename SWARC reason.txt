@@ -1,0 +1,1 @@
+The reason we've chosen this design for the software architecture diagram is because it is easy to understand while still getting across how we intend to connect all the parts of our website
