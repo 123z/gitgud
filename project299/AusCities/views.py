@@ -10,6 +10,12 @@ from .forms import LoginModel, RegisterForm
 from .models import UserType, User, Location
 
 # Create your views here.
+def help(request):
+    return render(request, 'auscities/help.html')
+
+def about(request):
+    return render(request, 'auscities/about.html')
+
 def index(request):
     return render(request, 'auscities/index.html')
 

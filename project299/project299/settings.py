@@ -29,6 +29,7 @@ ALLOWED_HOSTS = [
                 '10.0.0.62',
                    '124.183.236.86',
 				   '127.0.0.1',
+                '172.19.12.138',
                  ]
 
 
@@ -82,7 +83,7 @@ WSGI_APPLICATION = 'project299.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'smartcity',
+        'NAME': 'db299',
         'USER': 'root',
         'PASSWORD': 'admin',
         'HOST': 'localhost'
