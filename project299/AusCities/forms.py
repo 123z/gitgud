@@ -8,6 +8,7 @@ from .models import User
 #Model form for use of databases elements in the form
     
 class LoginModel(ModelForm):
+    rememberMe = forms.BooleanField(label="Remember me", required=False)
     class Meta:
         model = User
         fields = ['emailaddress', 'password']
@@ -24,7 +25,7 @@ class LoginModel(ModelForm):
         try:
             user = User.objects.get(emailaddress__iexact=cUsername)
             if hashers.check_password(cleanedData.get("password"), user.password):
-                logging.debug(user.usertype)
+                logging.debug(cleanedData.get("rememberMe"))
             else:
                 raise forms.ValidationError("Username or password incorrect")
         except User.DoesNotExist:

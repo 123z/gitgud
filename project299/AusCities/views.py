@@ -20,7 +20,12 @@ def index(request):
     return render(request, 'auscities/index.html')
 
 def logout(request):
-    request.session.delete()
+
+    if request.session['remember']:
+        del request.session['logged']
+        del request.session['type']
+    else:
+        request.session.flush()
     return HttpResponseRedirect('/')
 
 def login(request):
@@ -31,8 +36,19 @@ def login(request):
             request.session['logged'] = 1
             request.session['user'] = user.emailaddress
             request.session['type'] = user.usertype
-            logging.debug(request.session['type'])
+            if form.cleaned_data["rememberMe"]:
+                request.session['remember'] = True
+            else:
+                request.session['remember'] = False
+            logging.debug(form.cleaned_data["rememberMe"])
             return HttpResponseRedirect('/')
+        else:
+            try:
+                if request.session['remember']:
+                    form.fields['emailaddress'].initial = request.session['user']
+                    form.fields['rememberMe'].initial = True
+            except:
+                pass
         return render(request, 'auscities/login.html/', {'form':form})
 
 def register(request):
