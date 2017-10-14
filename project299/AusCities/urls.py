@@ -10,4 +10,5 @@ urlpatterns = [
     url(r'^result/$', views.result, name='result'),
     url(r'^about/$', views.about, name='about'),
     url(r'^help/$', views.help, name='help'),
+	url(r'^location/(?P<id>\d+)/$', views.location, name='location'),
     ]

@@ -27,7 +27,8 @@
 			
 			{% for item in location_info %}
 			<tr>
-				<td><a href="{{ item.website }}">{{ item.name }}</a></td>
+			
+				<td><a href="/location/{{ item.locationid }}">{{ item.name }}</a></td>
 				<td>{{ item.address }}</td>
 				<td>{{ item.city }}</td>
 				<td>{{ item.phonenumber }}</td>

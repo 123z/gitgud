@@ -83,9 +83,9 @@ WSGI_APPLICATION = 'project299.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'db299',
+        'NAME': 'smartctiy',
         'USER': 'root',
-        'PASSWORD': 'admin',
+        'PASSWORD': 'secret',
         'HOST': 'localhost'
     }
 }

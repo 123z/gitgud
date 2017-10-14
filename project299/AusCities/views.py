@@ -18,6 +18,9 @@ def about(request):
 
 def index(request):
     return render(request, 'auscities/index.html')
+	
+def location(request):
+    return render(request, 'auscities/location.html')
 
 def logout(request):
 
@@ -69,3 +72,10 @@ def result(request):
         'location_info': location_info,
     }
     return render(request, 'auscities/result.html', context)
+	
+def location(request, id):
+	info = Location.objects.get(locationid=id)
+	context = {
+        'info': info,
+    }
+	return render(request, 'auscities/location.html', context)

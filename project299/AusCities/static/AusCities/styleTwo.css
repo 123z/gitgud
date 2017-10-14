@@ -128,13 +128,53 @@ body {
 	display:none;
 }
 
-#contentfirst {
+#contentleft, #contentright {
 	height:100%;
-	width: 50rem;
-	margin-top: 8rem;
-	text-align:center;
-	margin-left: auto;
-	margin-right: auto;
+	width: 20%;
+	margin-left: 5%;
+	margin-right: 2.5%;
+	margin-top: 160px;
+	float: left;
+}
+
+#contentright {
+	margin-left: 2.5%;
+	
+}
+
+#picture {
+	float: left;
+	width: 40%;
+	margin-left: 2.5%;
+	margin-right: 5%;
+	background-color: #4D596E;
+	height: 500px;
+	margin-top: 160px;
+}
+
+.data h3 {
+	background-color: #4D596E;
+	color: white;
+	padding: 10px;
+	text-align: center;
+	margin-top: 5%;
+}
+
+.info {
+	background-color: white;
+	height: 100px;
+	margin-top: -20px;
+}
+
+.info p {
+	text-align: center;
+	padding: 5%;
+}
+
+#contentfirst {
+width: 80%;
+margin-top: 160px;
+margin-left: 10%;
 }
 
 
