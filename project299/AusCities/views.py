@@ -61,6 +61,7 @@ def register(request):
         request.session['logged'] = 1
         request.session['user'] = user.emailaddress
         request.session['type'] = user.usertype
+	request.session['remember'] = False
         user.password = hashers.make_password(user.password)
         user.save()
         return HttpResponseRedirect('/')
