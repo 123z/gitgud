@@ -1,0 +1,45 @@
+<html>
+{% load static %}
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'auscities/styleTwo.css' %}" />
+
+    <title>Smart City</title>
+</head>
+
+
+<body>
+    <div id="header">
+        <h3>"Account Type" Profile</h3>
+
+    </div>
+    {% include "auscities/header.html" %} <div id="welcome"><a href="/results/"> Recomended </a></center></p></div>
+    <div id="contentfirst">
+        <table>
+            <th>name</th>
+            <th>address</th>
+            <th>city</th>
+            <th>phone number</th>
+            <th>email address</th>
+            <th>Location type</th>
+
+            {% for item in location_info %}
+            <tr>
+
+                <td><a href="/location/{{ item.locationid }}">{{ item.name }}</a></td>
+                <td>{{ item.address }}</td>
+                <td>{{ item.city }}</td>
+                <td>{{ item.phonenumber }}</td>
+                <td>{{ item.emailaddress }}</td>
+                <td>{{ item.locationtype }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    </p>
+
+    {% include "auscities/footer.html" %}
+</body>
+</html>
