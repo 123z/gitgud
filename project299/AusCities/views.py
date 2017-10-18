@@ -18,9 +18,6 @@ def about(request):
 
 def index(request):
     return render(request, 'auscities/index.html')
-	
-def location(request):
-    return render(request, 'auscities/location.html')
 
 def logout(request):
 
@@ -61,7 +58,7 @@ def register(request):
         request.session['logged'] = 1
         request.session['user'] = user.emailaddress
         request.session['type'] = user.usertype
-	request.session['remember'] = False
+        request.session['remember'] = False
         user.password = hashers.make_password(user.password)
         user.save()
         return HttpResponseRedirect('/')
@@ -76,7 +73,9 @@ def result(request):
 	
 def location(request, id):
 	info = Location.objects.get(locationid=id)
+	history_tabs = Location.objects.all()
 	context = {
         'info': info,
+		'history_tabs': history_tabs,
     }
 	return render(request, 'auscities/location.html', context)

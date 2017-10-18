@@ -17,6 +17,12 @@
 	</div>
 	{% include "auscities/header.html" %}
 	
+	<div id="history">
+		{% for item in history_tabs %}
+		<a href="/location/{{ item.locationid }}">{{ item.name }} ></a>
+		{% endfor %}
+	</div>
+	
 	<div id="contentleft">
 		<div class="data">
 			<h3>Address</h3>
@@ -67,4 +73,6 @@
 	
 </body>
 </html>
+
+
 
