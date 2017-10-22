@@ -16,6 +16,34 @@ def help(request):
 def about(request):
     return render(request, 'auscities/about.html')
 
+def Businessman(request):
+	Businessman_hotel = Location.objects.filter(locationtype = 'hotel')
+	Businessman_industry = Location.objects.filter(locationtype = 'industry') 
+	context = {
+		'Businessman_hotel': Businessman_hotel,
+		'Businessman_industry': Businessman_industry,
+	}
+	return render(request, 'auscities/Businessman.html', context)
+	
+def Tourist(request):
+	Tourist_hotel = Location.objects.filter(locationtype = 'hotel')
+	context = {
+		'Tourist_hotel': Tourist_hotel,
+		
+	}
+	return render(request, 'auscities/Tourist.html', context)
+	
+def Student(request):
+	Student_college = Location.objects.filter(locationtype = 'college')
+	Student_library = Location.objects.filter(locationtype = 'library') 
+	context = {
+		'Student_college': Student_college,
+		'Student_library': Student_library,
+	}
+	return render(request, 'auscities/Student.html', context)
+
+	
+
 def index(request):
     return render(request, 'auscities/index.html')
 
