@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+{% load static %}
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{% static 'auscities/styleTwo.css' %}" />
+
+	<title>Smart City</title>
+</head>
+
+<body>
+	<div id="header">
+			<h3> Create admin account </h3>
+	</div>
+	{% include "auscities/header.html" %}
+	<div id="loginForm">
+			{% if request.session.logged == 2 %}
+				<form method="post">
+				{% csrf_token %}
+				{{ form.as_p}}
+				<input type="submit" value="Create account"/>
+				</form>
+			{% else %}
+				Only administrators have access to this page!
+			{% endif %}
+	</div>
+	{% include "auscities/footer.html" %}
+</body>
+	</html>
