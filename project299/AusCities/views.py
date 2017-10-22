@@ -6,8 +6,8 @@ from django.views import generic
 from django.utils import timezone
 from django.contrib.auth import hashers
 
-from .forms import LoginModel, RegisterForm
-from .models import UserType, User, Location
+from .forms import LoginModel, RegisterForm, AdminModel, EditProfile, CreateAdmin
+from .models import UserType, User, Location, Admin
 
 # Create your views here.
 def help(request):
@@ -56,6 +56,23 @@ def logout(request):
         request.session.flush()
     return HttpResponseRedirect('/')
 
+def createadmin(request):
+    form = CreateAdmin(request.POST or None)
+    if form.is_valid():
+        instance = form.save()
+        instance.password = hashers.make_password(instance.password)
+        instance.save()
+    return render(request, 'auscities/admincreate.html/', {'form':form})
+
+def admin(request):
+    form = AdminModel(request.POST or None)
+    if form.is_valid():
+        instance = form.save(commit=False)
+        admin = Admin.objects.get(emailaddress__iexact=instance.emailaddress)
+        request.session['logged'] = 2
+        return HttpResponseRedirect('/')
+    return render(request, 'auscities/admin.html/', {'form':form})
+
 def login(request):
         form = LoginModel(request.POST or None)
         if form.is_valid():
@@ -91,7 +108,19 @@ def register(request):
         user.save()
         return HttpResponseRedirect('/')
     return render(request, 'auscities/register.html', {'form':form})
-	
+
+def user(request):
+    form = EditProfile(request.POST or None)
+    if form.is_valid():
+        user = User.objects.get(emailaddress__iexact=request.session['user'])
+        user.firstname = form.cleaned_data['firstname']
+        user.lastname = form.cleaned_data['lastname']
+        user.password = hashers.make_password(form.cleaned_data['password'])
+        user.save()
+        return HttpResponseRedirect('/')
+    return render(request, 'auscities/editprofile.html', {'form':form})
+
+
 def result(request):
     location_info = Location.objects.all()
     context = {
