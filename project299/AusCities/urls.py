@@ -15,4 +15,7 @@ urlpatterns = [
     url(r'^result/Businessman/$', views.Businessman, name='Businessman'),
 	url(r'^location/(?P<id>\d+)/$', views.location, name='location'),
 	url(r'^profile/$', views.result, name='profile'),
+	url(r'^admin/$', views.admin, name='admin'),
+    url(r'^admin/create$', views.createadmin, name='createadmin'),
+    url(r'^user/$', views.user, name='user'),
     ]
