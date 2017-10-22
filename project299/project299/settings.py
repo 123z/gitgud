@@ -29,6 +29,7 @@ ALLOWED_HOSTS = [
                 '10.0.0.62',
                    '124.183.236.86',
 				   '127.0.0.1',
+                '172.19.12.138',
                  ]
 
 
@@ -37,7 +38,7 @@ ALLOWED_HOSTS = [
 
 INSTALLED_APPS = [
     'AusCities.apps.AuscitiesConfig',
-    'django.contrib.admin',
+    #'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -82,7 +83,7 @@ WSGI_APPLICATION = 'project299.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'db299',
+        'NAME': 'smartcity',
         'USER': 'root',
         'PASSWORD': 'admin',
         'HOST': 'localhost'

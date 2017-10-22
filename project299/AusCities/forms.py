@@ -4,10 +4,36 @@ from django.forms import ModelForm
 from django.contrib.auth import hashers
 
 
-from .models import User
+from .models import User, Admin
 #Model form for use of databases elements in the form
+
+class AdminModel(ModelForm):
+    #rememberMe = forms.BooleanField(label="Remember me", required=False)
+    class Meta:
+        model = Admin
+        fields = ['emailaddress', 'password']
+        widgets = {
+            'password': forms.PasswordInput(attrs={'placeholder':'Enter your password...'}),
+                    'emailaddress': forms.TextInput(attrs={'placeholder':'Enter your username...'}),
+            }
+        labels = {
+                'emailaddress': 'E-mail address',
+            }
+    def clean(self):
+        cleanedData = super(AdminModel, self).clean()
+        cUsername = cleanedData.get("emailaddress")
+        try:
+            admin = Admin.objects.get(emailaddress__iexact=cUsername)
+            if hashers.check_password(cleanedData.get("password"), admin.password):
+                logging.debug("test")
+            else:
+                raise forms.ValidationError("Username or password incorrect")
+        except User.DoesNotExist:
+            raise forms.ValidationError("Username or password incorrect")
+    
     
 class LoginModel(ModelForm):
+    rememberMe = forms.BooleanField(label="Remember me", required=False)
     class Meta:
         model = User
         fields = ['emailaddress', 'password']
@@ -24,7 +50,7 @@ class LoginModel(ModelForm):
         try:
             user = User.objects.get(emailaddress__iexact=cUsername)
             if hashers.check_password(cleanedData.get("password"), user.password):
-                logging.debug(user.usertype)
+                logging.debug(cleanedData.get("rememberMe"))
             else:
                 raise forms.ValidationError("Username or password incorrect")
         except User.DoesNotExist:

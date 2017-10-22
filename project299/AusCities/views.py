@@ -6,16 +6,42 @@ from django.views import generic
 from django.utils import timezone
 from django.contrib.auth import hashers
 
-from .forms import LoginModel, RegisterForm
-from .models import UserType, User, Location
+from .forms import LoginModel, RegisterForm, AdminModel
+from .models import UserType, User, Location, Admin
 
 # Create your views here.
+def help(request):
+    return render(request, 'auscities/help.html')
+
+def about(request):
+    return render(request, 'auscities/about.html')
+
 def index(request):
     return render(request, 'auscities/index.html')
+	
+def location(request):
+    return render(request, 'auscities/location.html')
 
 def logout(request):
-    request.session.delete()
+    if request.session['remember']:
+        del request.session['logged']
+        del request.session['type']
+    else:
+        request.session.flush()
     return HttpResponseRedirect('/')
+def admin(request):
+    form = AdminModel(request.POST or None)
+    if form.is_valid():
+        instance = form.save(commit=False)
+            
+        return HttpResponseRedirect('/')
+    else:
+        try:
+            pass   
+        except:
+            pass
+
+    return render(request, 'auscities/admin.html/', {'form':form})
 
 def login(request):
         form = LoginModel(request.POST or None)
@@ -25,8 +51,19 @@ def login(request):
             request.session['logged'] = 1
             request.session['user'] = user.emailaddress
             request.session['type'] = user.usertype
-            logging.debug(request.session['type'])
+            if form.cleaned_data["rememberMe"]:
+                request.session['remember'] = True
+            else:
+                request.session['remember'] = False
+            logging.debug(form.cleaned_data["rememberMe"])
             return HttpResponseRedirect('/')
+        else:
+            try:
+                if request.session['remember']:
+                    form.fields['emailaddress'].initial = request.session['user']
+                    form.fields['rememberMe'].initial = True
+            except:
+                pass
         return render(request, 'auscities/login.html/', {'form':form})
 
 def register(request):
@@ -36,6 +73,7 @@ def register(request):
         request.session['logged'] = 1
         request.session['user'] = user.emailaddress
         request.session['type'] = user.usertype
+        request.session['remember'] = False
         user.password = hashers.make_password(user.password)
         user.save()
         return HttpResponseRedirect('/')
@@ -47,3 +85,10 @@ def result(request):
         'location_info': location_info,
     }
     return render(request, 'auscities/result.html', context)
+	
+def location(request, id):
+	info = Location.objects.get(locationid=id)
+	context = {
+        'info': info,
+    }
+	return render(request, 'auscities/location.html', context)

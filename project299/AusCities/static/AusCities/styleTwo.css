@@ -11,7 +11,6 @@ A2AAB0
 /*
 	Footer
 */
-
 ::-webkit-input-placeholder {
 	color: #8c95a5;
 }
@@ -77,7 +76,7 @@ body {
 	font-weight: bold;
 	text-align: center;
 	margin-left: 25%;
-	margin-top: 10rem;
+	margin-top: 8rem;
 	width:50%;
 }
 
@@ -121,17 +120,77 @@ body {
 	display: block;
 }
 
+.collapse.in {
+	display:block;
+}
+
+.collapse {
+	display:none;
+}
+
+#contentleft, #contentright {
+	height:100%;
+	width: 20%;
+	margin-left: 5%;
+	margin-right: 2.5%;
+	margin-top: 160px;
+	float: left;
+}
+
+#contentright {
+	margin-left: 2.5%;
+	
+}
+
+#picture {
+	width: 40%;
+	margin-left: 2.5%;
+	margin-right: 5%;
+	background-color: #4D596E;
+	height: 500px;
+	margin-top: 160px;
+	float: left;
+}
+
+.data h3 {
+	background-color: #4D596E;
+	color: white;
+	padding: 10px;
+	text-align: center;
+	margin-top: 5%;
+}
+
+.info {
+	background-color: white;
+	height: 100px;
+	margin-top: -20px;
+	overflow: initial;
+}
+
+.info p {
+	text-align: center;
+	padding: 5%;
+}
+
+#contentfirst {
+width: 80%;
+margin-top: 160px;
+margin-left: 10%;
+}
 
 
 #content {
+	height:100%;
 	width: 50rem;
-	margin-top: 8rem;
+	//margin-top: 8rem;
+	text-align:center;
 	margin-left: auto;
 	margin-right: auto;
 }
 
 #loginForm {
-	width: 50rem;
+	height:100%;
+	width: 50%;
 	text-align:center;
 	margin-left: auto;
 	margin-right: auto;
@@ -183,7 +242,7 @@ input, select {
 	padding: 2%;
 	margin-bottom: 2%;
 	margin-top: 2%;
-	width: 50%;
+	width: 60%;
 	box-sizing: border-box;
 	font-family: 'Montserrat', sans-serif;
 
@@ -205,12 +264,12 @@ label {
 }
 
 #footer {
+	z-index: -1;
 	background-color: white;
-	bottom: 0;
-	left:0;
-	right:0;
+	position:sticky;
+	bottom:0;
 	width: 100%;
 	padding: 25px 0;
 	display: block;
-	position: absolute;
+	//position: absolute;
 }

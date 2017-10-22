@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+{% load static %}
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'auscities/styleTwo.css' %}" />
+
+	<title>Smart City</title>
+</head>
+
+
+<body>
+	<div id="header">
+		<h3>{{ info.name }}</h3>
+	</div>
+	{% include "auscities/header.html" %}
+	
+	<div id="contentleft">
+		<div class="data">
+			<h3>Address</h3>
+			<div class="info">
+			<p>{{ info.address }}</p>
+			</div>
+		</div>
+		<div class="data">
+			<h3>City</h3>
+			<div class="info">
+			<p>{{ info.city }}</p>
+			</div>
+		</div>
+		<div class="data">
+			<h3>Location Type</h3>
+			<div class="info">
+			<p>{{ info.locationtype }}</p>
+			</div>
+		</div>
+	</div>
+	
+	<div id="contentright">
+		<div class="data">
+			<h3>Website</h3>
+			<div class="info">
+			<p><a href="{{ info.website }}">{{ info.website }}</a></p>
+			</div>
+		</div>
+		<div class="data">
+			<h3>Phone Number</h3>
+			<div class="info">
+			<p>{{ info.phonenumber }}</p>
+			</div>
+		</div>
+		<div class="data">
+			<h3>Email Address</h3>
+			<div class="info">
+			<p>{{ info.emailaddress }}</p>
+			</div>
+		</div>
+	</div>
+	
+	<div id="picture">
+		
+	</div>
+	<!-- {% include "auscities/footer.html" %} -->
+</body>
+</html>
+

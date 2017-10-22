@@ -16,7 +16,7 @@
 		<h3>Results</h3>
 	</div>
 	{% include "auscities/header.html" %}
-	<div id="content">
+	<div id="contentfirst">
 		<table>
 			<th>name</th>
 			<th>address</th>
@@ -27,7 +27,8 @@
 			
 			{% for item in location_info %}
 			<tr>
-				<td><a href="{{ item.website }}">{{ item.name }}</a></td>
+			
+				<td><a href="/location/{{ item.locationid }}">{{ item.name }}</a></td>
 				<td>{{ item.address }}</td>
 				<td>{{ item.city }}</td>
 				<td>{{ item.phonenumber }}</td>
@@ -37,7 +38,7 @@
 			{% endfor %}
 		</table>	
 	</div>
-	
+	</p>
 	
 	{% include "auscities/footer.html" %}
 </body>
