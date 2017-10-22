@@ -16,6 +16,15 @@ class UserType(models.Model):
     def __str__(self):
         return self.userType
     
+class Admin(models.Model):
+    adminid = models.AutoField(db_column='adminID', primary_key=True)
+    emailaddress = models.EmailField(db_column='emailAddress', max_length=80, blank=False, null=True)
+    firstname = models.CharField(db_column='firstName', max_length=45, blank=True, null=True)  # Field name made lowercase.
+    lastname = models.CharField(db_column='lastName', max_length=45, blank=True, null=True)
+    password = models.CharField(db_column='password', max_length=350, blank=True, null=True)
+    class Meta:
+        db_table = 'admin'
+    
 class User(models.Model):
     userid = models.AutoField(db_column='userID', primary_key=True)  # Field name made lowercase.
     emailaddress = models.EmailField(db_column='emailAddress', max_length=80, blank=False, null=True)  # Field name made lowercase.
