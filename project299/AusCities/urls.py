@@ -10,6 +10,9 @@ urlpatterns = [
     url(r'^result/$', views.result, name='result'),
     url(r'^about/$', views.about, name='about'),
     url(r'^help/$', views.help, name='help'),
+    url(r'^result/Student/$', views.Student, name='Student'),
+    url(r'^result/Tourist/$', views.Tourist, name='Tourist'),
+    url(r'^result/Businessman/$', views.Businessman, name='Businessman'),
 	url(r'^location/(?P<id>\d+)/$', views.location, name='location'),
 	url(r'^profile/$', views.result, name='profile'),
     ]
