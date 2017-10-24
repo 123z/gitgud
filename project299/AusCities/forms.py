@@ -111,13 +111,14 @@ class RegisterForm(ModelForm):
             raise forms.ValidationError("Username taken")
 
 class EditProfile(forms.Form):
-    firstname = forms.CharField(label = 'Enter your first name.',
-                                widget=forms.TextInput(attrs={'placeholder':'Enter your first name...'}))
-    lastname = forms.CharField(label = 'Enter your last name.',
-                                widget=forms.TextInput(attrs={'placeholder':'Enter your last name...'}))
-    password = forms.CharField(label ='Enter your password',
-                              widget=forms.PasswordInput(attrs={'placeholder':'Enter your password...'}))
-    confirm = forms.CharField(label ='Confirm password',widget=forms.PasswordInput(attrs={'placeholder':'Re-enter your password...'}))
+    firstname = forms.CharField(label = 'Update user first name.',
+                                widget=forms.TextInput(attrs={'placeholder':'Enter your new first name...'}))
+    lastname = forms.CharField(label = 'Update user last name.',
+                                widget=forms.TextInput(attrs={'placeholder':'Enter your new last name...'}))
+    password = forms.CharField(label ='New password',
+                              widget=forms.PasswordInput(attrs={'placeholder':'Enter your new password...'}))
+    confirm = forms.CharField(label ='Confirm new password',widget=forms.PasswordInput(attrs={'placeholder':'Re-enter your new password...'}))
+
 
     def clean(self):
         cleanedData = super(EditProfile, self).clean()
