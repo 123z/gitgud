@@ -13,9 +13,9 @@
 
 <body>
 	<div id="header">
+		{% include "auscities/header.html" %}
 		<h3>{{ info.name }}</h3>
 	</div>
-	{% include "auscities/header.html" %}
 	
 	<div id="history">
 		{% for item in history_tabs %}
@@ -23,56 +23,57 @@
 		{% endfor %}
 	</div>
 	
+	<div id="wrapper">
+	
+	<div id="picture"></div>
+	
+	<div id="floater">
+	
 	<div id="contentleft">
 		<div class="data">
 			<h3>Address</h3>
-			<div class="info">
 			<p>{{ info.address }}</p>
-			</div>
 		</div>
+		<div class="data">
+			<h3>Website</h3>
+			<p><a href="{{ info.website }}">{{ info.website }}</a></p>
+		</div>	
+	</div>
+	
+	<div id="contentmiddle">
 		<div class="data">
 			<h3>City</h3>
-			<div class="info">
 			<p>{{ info.city }}</p>
-			</div>
 		</div>
 		<div class="data">
-			<h3>Location Type</h3>
-			<div class="info">
-			<p>{{ info.locationtype }}</p>
-			</div>
+			<h3>Phone Number</h3>
+			<p>{{ info.phonenumber }}</p>
 		</div>
 	</div>
 	
 	<div id="contentright">
 		<div class="data">
-			<h3>Website</h3>
-			<div class="info">
-			<p><a href="{{ info.website }}">{{ info.website }}</a></p>
-			</div>
-		</div>
-		<div class="data">
-			<h3>Phone Number</h3>
-			<div class="info">
-			<p>{{ info.phonenumber }}</p>
-			</div>
+			<h3>Location Type</h3>
+			<p>{{ info.locationtype }}</p>
 		</div>
 		<div class="data">
 			<h3>Email Address</h3>
-			<div class="info">
 			<p>{{ info.emailaddress }}</p>
-			</div>
 		</div>
 	</div>
 	
-	<div id="picture">
-		
+	
+	</div>
 	</div>
 	
-	<!-- {% include "auscities/footer.html" %} -->
+	<div id="footer">
+		<a href="/about/"> About </a>
+	</div>
 	
 </body>
 </html>
+
+
 
 
 

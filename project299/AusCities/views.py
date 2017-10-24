@@ -5,8 +5,9 @@ from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
 from django.contrib.auth import hashers
+from django.db.models import Q
 
-from .forms import LoginModel, RegisterForm, AdminModel, EditProfile, CreateAdmin
+from .forms import LoginModel, RegisterForm, AdminModel, EditProfile, CreateAdmin, SearchForm
 from .models import UserType, User, Location, Admin
 
 # Create your views here.
@@ -145,3 +146,18 @@ def location(request, id):
 		'history_tabs': history_tabs,
     }
 	return render(request, 'auscities/location.html', context)
+	
+def searched(request):
+	global filtered, lname, lcity, ltype
+	form = SearchForm(request.POST)
+	if form.is_valid():
+		lname = form.cleaned_data['Name']
+		lcity = form.cleaned_data['City']
+		ltype = form.cleaned_data['Type']
+		filtered = Location.objects.filter(Q(name=lname) | Q(city=lcity) | Q(locationtype=ltype))
+		form = SearchForm()
+	context = {
+		'filtered': filtered,
+		'form': form,
+	}
+	return render(request, 'auscities/result.html', context)

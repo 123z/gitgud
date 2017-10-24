@@ -127,3 +127,9 @@ class EditProfile(forms.Form):
         logging.debug("Cleaned")
         if password != confirm:
             raise forms.ValidationError("Your passwords don't match.")
+			
+class SearchForm(forms.Form):
+
+	Name = forms.CharField(required=False, widget=forms.TextInput(attrs={'placeholder':'Name'}))
+	City = forms.CharField(required=False, widget=forms.TextInput(attrs={'placeholder':'City'}))
+	Type = forms.CharField(required=False, widget=forms.TextInput(attrs={'placeholder':'Location Type'}))

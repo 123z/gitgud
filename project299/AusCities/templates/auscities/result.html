@@ -13,27 +13,33 @@
 
 <body>
 	<div id="header">
-		<h3>Results</h3>
+		{% include "auscities/header.html" %}
+		<h3>Search</h3>
 	</div>
-	{% include "auscities/header.html" %}
+	
 	<div id="contentfirst">
-	{% include "auscities/viewas.html" %}
+		<div id="selectContainer">
+			<form id="search" method="post">
+				{% csrf_token %}
+				{{ form.Name }}
+				{{ form.City }}
+				{{ form.Type }}
+				<input type="submit" value="Search"/>
+			</form>
+			{% include "auscities/viewas.html" %}
+		</div>
 		<table>
-			<th>name</th>
-			<th>address</th>
-			<th>city</th>
-			<th>phone number</th>
-			<th>email address</th>
-			<th>Location type</th>
+				<th class="left">Name</th>
+				<th class="left">Address</th>
+				<th>City</th>
+				<th>Location type</th>
 			
-			{% for item in location_info %}
+			{% for item in filtered %}
 			<tr>
 			
-				<td><a href="/location/{{ item.locationid }}">{{ item.name }}</a></td>
-				<td>{{ item.address }}</td>
+				<td class="left"><a href="/location/{{ item.locationid }}">{{ item.name }}</a></td>
+				<td class="left">{{ item.address }}</td>
 				<td>{{ item.city }}</td>
-				<td>{{ item.phonenumber }}</td>
-				<td>{{ item.emailaddress }}</td>
 				<td>{{ item.locationtype }}</td>
 			</tr>
 			{% endfor %}
