@@ -29,10 +29,12 @@
 			{% include "auscities/viewas.html" %}
 		</div>
 		<table>
+				{% if bool %}
 				<th class="left">Name</th>
 				<th class="left">Address</th>
 				<th>City</th>
 				<th>Location type</th>
+				{% endif %}
 			
 			{% for item in filtered %}
 			<tr>
