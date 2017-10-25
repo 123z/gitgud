@@ -7,7 +7,7 @@ from django.utils import timezone
 from django.contrib.auth import hashers
 from django.db.models import Q
 
-from .forms import LoginModel, RegisterForm, AdminModel, EditProfile, CreateAdmin, SearchForm
+from .forms import LoginModel, RegisterForm, AdminModel, EditProfile, CreateAdmin, SearchForm, AddInfo
 from .models import UserType, User, Location, Admin
 
 # Create your views here.
@@ -75,6 +75,15 @@ def createadmin(request):
         instance.password = hashers.make_password(instance.password)
         instance.save()
     return render(request, 'auscities/admincreate.html/', {'form':form})
+
+    
+def info(request):
+    form = AddInfo(request.POST or None)
+    if form.is_valid():
+        location = form.save()
+        logging.debug(location.name)
+        return HttpResponseRedirect('/')
+    return render(request, 'auscities/info.html/', {'form':form})
 
 def admin(request):
     form = AdminModel(request.POST or None)

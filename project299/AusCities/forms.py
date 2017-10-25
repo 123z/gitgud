@@ -4,8 +4,17 @@ from django.forms import ModelForm
 from django.contrib.auth import hashers
 
 
-from .models import User, Admin
+from .models import User, Admin, Location
 #Model form for use of databases elements in the form
+class AddInfo(ModelForm):
+    class Meta:
+        model = Location
+        fields = '__all__'
+        widgets = {
+                'emailaddress': forms.EmailInput(attrs={'placeholder':'test'})
+            }
+
+
 class CreateAdmin(ModelForm):
     confirm = forms.CharField(label ='Confirm password',widget=forms.PasswordInput(attrs={'placeholder':'Re-enter your password...'}))
     class Meta:

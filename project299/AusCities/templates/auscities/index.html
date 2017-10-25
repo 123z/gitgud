@@ -16,12 +16,14 @@
 	</div>
 	{% include "auscities/header.html" %}
 	<div id="welcome">
-		{% if request.session.logged %}
+		{% if request.session.logged == 1%}
 		<p />Welcome {{ request.session.user }}.
 		<p/> You're a {{ request.session.type }}
 		{% elif not request.session.logged %}
 		<a href="/login/"> Login </a></p>
 		<a href="/register/"> Register </a></p>
+		{% elif request.session.logged == 2 %}
+		Welcome Administrator.
 		{% endif %}
 	</div>
 	{% include "auscities/footer.html" %}

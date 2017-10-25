@@ -44,7 +44,8 @@ class Location(models.Model):
     city = models.CharField(max_length=45, blank=True, null=True)
     phonenumber = models.CharField(db_column='phoneNumber', max_length=45, blank=True, null=True)  # Field name made lowercase.
     emailaddress = models.CharField(db_column='emailAddress', max_length=80, blank=True, null=True)  # Field name made lowercase.
-    locationtype = models.CharField(db_column='locationType', max_length=10, blank=True, null=True)  # Field name made lowercase.
+    locationtype = EnumField(choices=(('College', 'College'),('Library', 'Library'), ('Industry', 'Industry'),
+                             ('Hotel', 'Hotel'),('Park', 'Park'),('Zoo', 'Zoo'),('Museum', 'Museum'), ('Restaurant', 'Restaurant'), ('Mall', 'Mall')))  # Field name made lowercase.  # Field name made lowercase.
     website = models.CharField(max_length=100, blank=True, null=True)
 
     class Meta:

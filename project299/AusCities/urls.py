@@ -18,4 +18,5 @@ urlpatterns = [
 	url(r'^admin/$', views.admin, name='admin'),
     url(r'^admin/create$', views.createadmin, name='createadmin'),
     url(r'^user/$', views.user, name='user'),
+    url(r'^admin/add_info/$', views.info, name='info'),
     ]
