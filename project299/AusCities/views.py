@@ -58,14 +58,16 @@ def index(request):
     return render(request, 'auscities/index.html')
 
 def logout(request):
-
-    if request.session['remember']:
-        del request.session['logged']
-        del request.session['type']
-    else:
+    try:
+        if request.session['remember']:
+            del request.session['logged']
+            del request.session['type']
+        else:
+            request.session.flush()
+        return HttpResponseRedirect('/')
+    except:
         request.session.flush()
-    return HttpResponseRedirect('/')
-
+	
 def createadmin(request):
     form = CreateAdmin(request.POST or None)
     if form.is_valid():
