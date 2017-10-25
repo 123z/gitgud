@@ -13,13 +13,18 @@
 
 <body>
 	<div id="header">
+	<!---page heading --->
 		<h3>You're Viewing Businessman Results</h3>
 	</div>
+	<!---imports header template 'see header.html in templates' --->
 	{% include "auscities/header.html" %}
 	<div id="contentfirst">
 	
+	<!---table heading 'relevent information task criteria for businessman information'--->
 	<h4> Most Relevant Businessman Information </h4>
-	
+	<!---table titles --->
+	<!---folowing code is for table 1 . it differentiates from table 2 that shows city information--->
+	<!---start table 1--->
 		<table>
 			<th>name</th>
 			<th>address</th>
@@ -27,10 +32,11 @@
 			<th>phone number</th>
 			<th>email address</th>
 			<th>Location type</th>
-			
+			<!---for loop referencing variable from 'views.py, function businessman' 
+				basically shows hotel information specifically--->
 			{% for item in Businessman_hotel %}
 			<tr>
-			
+				<!---pulling requested data from database --->
 				<td><a href="/location/{{ item.locationid }}">{{ item.name }}</a></td>
 				<td>{{ item.address }}</td>
 				<td>{{ item.city }}</td>
@@ -39,6 +45,9 @@
 				<td>{{ item.locationtype }}</td>
 			</tr>
 			{% endfor %}
+			
+			<!---for loop referencing variable from 'views.py, function businessman'
+				basically shows industry information specifically--->
 			{% for item in Businessman_industry %}
 			<tr>
 			
@@ -51,10 +60,13 @@
 			</tr>
 			{% endfor %}
 		</table>
+		<!---end table 1 --->
 			<br>
 			<br>
+		<!--- title for all city information--->
 			<h4>Other City Information</h4>
-			
+		<!---start table 2 --->	
+		<!---table displays all city information--->
 		<table>
 			<th>name</th>
 			<th>address</th>
@@ -63,7 +75,8 @@
 			<th>email address</th>
 			<th>Location type</th>
 			
-			
+			<!---for loop referencing variable from 'views.py, function businessman'
+				basically shows industry information specifically--->
 			{% for item in location_info %}
 			<tr>
 			
@@ -76,10 +89,11 @@
 			</tr>
 			{% endfor %}
 			
-		</table>	
+		</table>
+			<!---end table 2--->
 	</div>
 	</p>
-	
+	<!---refernce html format for the footer found under template footer.html-->
 	{% include "auscities/footer.html" %}
 </body>
 </html>
