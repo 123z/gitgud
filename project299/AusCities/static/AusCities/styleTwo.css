@@ -19,13 +19,13 @@ body {
 	background-color: #C6C7BF;
 	color: #3C3D3B;
 	font-family: 'Montserrat', sans-serif;
+	margin: 0;
 }
 
 #header {
 	top: 0;
 	left: 0;
 	width: 100%;
-	position: fixed;
 }
 
 #header h1 {
@@ -47,7 +47,8 @@ body {
 	background-color: #4D596E;
 	color: white;
 	text-align: center;
-	margin-top: 3rem;
+	margin-top: 0;
+	margin-bottom: 0;
 }
 
 #menu {
@@ -133,8 +134,8 @@ body {
 	overflow: hidden;
 	width: 100%;
 	left: 0;
-	position: absolute;
 	background-color: #424b5a;
+	margin-top: 0;
 }
 
 #history a {
@@ -156,7 +157,7 @@ body {
 #wrapper {
 	margin-left: 20%;
 	width: 60%;
-	margin-top: 110px;
+	margin-top: 1%;
 }
 
 #floater:after {
@@ -184,9 +185,7 @@ body {
 }
 
 #picture {
-	background-color: #ffffff;
-	height: 500px;
-	border-bottom: thick solid #4d596e;
+	height: 400px;
 }
 
 .data h3 {
