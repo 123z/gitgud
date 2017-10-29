@@ -1,0 +1,14 @@
+
+	<h1> <a href="/" >Smart City </a></h1>
+	
+	<div id="menu">
+		{% if not request.session.logged %}
+		<a href="/login/"> Login </a>
+		<a href="/register/"> Register </a>
+		{% elif request.session.logged %}
+		<a href="/result/"> Search </a>
+		<a href="/help/"> Help </a>
+		<a href="/user"> Edit Profile </a>
+		<a href="/logout/"> Log out </a>
+		{% endif %}
+	</div>

@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<html>
+{% load static %}
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{% static 'auscities/styleTwo.css' %}" />
+	
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+	<title>Google Maps JavaScript API v3 Example: Geocoding Simple</title>
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBQ2WMrY94zLJV31Au8Oboq113eBRHXmVU&callback=initMap"></script>
+	<script type="text/javascript">
+	  var geocoder;
+	  var map;
+	  var address ="{{ info.address }} {{ info.city }}" // or markerElem.getAttribute('address') //;
+	  function initialize() {
+		geocoder = new google.maps.Geocoder();
+		var latlng = new google.maps.LatLng(0,0);
+		var myOptions = {
+		  zoom: 13,
+		  center: latlng,
+		mapTypeControl: true,
+		mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
+		navigationControl: true,
+		  mapTypeId: google.maps.MapTypeId.ROADMAP
+		};
+		map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+		if (geocoder) {
+		  geocoder.geocode( { 'address': address}, function(results, status) {
+			if (status == google.maps.GeocoderStatus.OK) {
+			  if (status != google.maps.GeocoderStatus.ZERO_RESULTS) {
+			  map.setCenter(results[0].geometry.location);
+				var infowindow = new google.maps.InfoWindow(
+					{ content: '<b>'+address+'</b>',
+					  size: new google.maps.Size(100,100)
+					});
+				var marker = new google.maps.Marker({
+					position: results[0].geometry.location,
+					map: map, 
+					title:address
+				}); 
+				google.maps.event.addListener(marker, 'click', function() {
+					infowindow.open(map,marker);
+				});
+			  } else {
+				alert("No address found");
+			  }
+			} else {
+			  alert("Address not found because" + status);
+			}
+		  });
+		}
+	  }
+	</script>
+
+	<title>Smart City</title>
+</head>
+
+
+<body onload="initialize()">
+	<div id="header">
+		{% include "auscities/header.html" %}
+		<h3>{{ info.name }}</h3>
+	</div>
+	
+	<div id="history">
+		{% for item in historys %}
+		<a href="/location/{{ item.locationid }}">{{ item.name }} ></a>
+		{% endfor %}
+	</div>
+	
+	<div id="wrapper">
+	
+	<div id="picture">
+		 <div id="map_canvas" style="width:100%; height:100%"></div>
+	
+	</div>
+	
+	<div id="floater">
+	
+	<div id="contentleft">
+		<div class="data">
+			<h3>Address</h3>
+			<p>{{ info.address }}</p>
+		</div>
+		<div class="data">
+			<h3>Website</h3>
+			<p><a href="{{ info.website }}">{{ info.website }}</a></p>
+		</div>	
+	</div>
+	
+	<div id="contentmiddle">
+		<div class="data">
+			<h3>City</h3>
+			<p>{{ info.city }}</p>
+		</div>
+		<div class="data">
+			<h3>Phone Number</h3>
+			<p>{{ info.phonenumber }}</p>
+		</div>
+	</div>
+	
+	<div id="contentright">
+		<div class="data">
+			<h3>Location Type</h3>
+			<p>{{ info.locationtype }}</p>
+		</div>
+		<div class="data">
+			<h3>Email Address</h3>
+			<p>{{ info.emailaddress }}</p>
+		</div>
+	</div>
+	
+	
+	</div>
+	</div>
+	
+	<div id="footer">
+		<a href="/about/"> About </a>
+	</div>
+	
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+{% load static %}
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{% static 'auscities/styleTwo.css' %}" />
+
+	<title>Smart City</title>
+</head>
+
+
+<body>
+	<div id="header">
+		{% include "auscities/header.html" %}
+		<h3>Search</h3>
+	</div>
+	
+	<div id="contentfirst">
+		<div id="selectContainer">
+			{% include "auscities/viewas.html" %}
+			<hr>
+			<form id="search" method="post">
+				{% csrf_token %}
+				{{ form.Name }}
+				{{ form.City }}
+				{{ form.Type }}
+				<input type="submit" value="Search"/>
+			</form>
+		</div>
+		<table>
+				{% if bool %}
+				<th class="left">Name</th>
+				<th class="left">Address</th>
+				<th>City</th>
+				<th>Location type</th>
+				{% endif %}
+			
+			{% for item in filtered %}
+			<tr>
+			
+				<td class="left"><a href="/location/{{ item.locationid }}">{{ item.name }}</a></td>
+				<td class="left">{{ item.address }}</td>
+				<td>{{ item.city }}</td>
+				<td>{{ item.locationtype }}</td>
+			</tr>
+			{% endfor %}
+		</table>	
+	</div>
+	</p>
+	
+	{% include "auscities/footer.html" %}
+</body>
+</html>
+

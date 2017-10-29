@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+{% load static %}
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{% static 'auscities/styleTwo.css' %}" />
+
+	<title>Smart City</title>
+</head>
+
+
+<body>
+	<div id="header">
+	<!---page heading --->
+	<!---imports header template 'see header.html in templates' --->
+		{% include "auscities/header.html" %}
+		<h3>You're Viewing Businessman Results</h3>
+	</div>
+	<div id="contentfirst">
+	
+	<!---table heading 'relevent information task criteria for businessman information'--->
+	<!---table titles --->
+	<!---folowing code is for table 1 . it differentiates from table 2 that shows city information--->
+	<!---start table 1--->
+		<table>
+			<th class="left">name</th>
+			<th class="left">address</th>
+			<th>city</th>
+			<th>Location type</th>
+			
+			<!---for loop referencing variable from 'views.py, function businessman'
+				basically shows industry information specifically--->
+			{% for item in location_info %}
+			<tr>
+			
+				<td class="left"><a href="/location/{{ item.locationid }}">{{ item.name }}</a></td>
+				<td class="left">{{ item.address }}</td>
+				<td>{{ item.city }}</td>
+				<td>{{ item.locationtype }}</td>
+			</tr>
+			{% endfor %}
+			
+		</table>
+			<!---end table 2--->
+	</div>
+	</p>
+	<!---refernce html format for the footer found under template footer.html-->
+	{% include "auscities/footer.html" %}
+</body>
+</html>

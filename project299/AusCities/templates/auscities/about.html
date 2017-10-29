@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+{% load static %}
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{% static 'auscities/styleTwo.css' %}" />
+
+	<title>Smart City</title>
+</head>
+
+<body>
+ 	<div id="header">
+			{% include "auscities/header.html" %}
+			<h3> About </h3>
+	</div>
+	<div id="contentfirst">
+		<p>
+			SmartCity can be used to find out information about any given city. Starting out with Brisbane city,
+			users can register accounts as Students, Tourists or Businessmen and view information about the city
+			to help plan journeys, and ensure that any trip to a new city is well planned for. The user can look at
+			information about:
+		</p>
+			
+			<ul>
+				<li>Libraries</li>
+				<li>Colleges</li>
+				<li>Hotels</li>
+				<li>Industries</li>
+				<li>Parks</li>
+				<li>Zoos</li>
+				<li>Museums</li>
+				<li>Restaurants</li>
+				<li>Malls</li>
+			</ul>
+	</div>
+	{% include "auscities/footer.html" %}
+</body>
+</html>

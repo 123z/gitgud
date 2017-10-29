@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html lang = "en">
+  <head>
+  <style type="text/css">
+  select.choice {background-color:#4C586F}
+  select.choice {color:white}
+  </style>
+
+
+  
+  </head>
+
+  <body>
+          <p>
+	   <div class="greyselect">
+             <select id = "ViewAs" class="choice">
+	       <option value = "" class="choice">View As...</option>
+	       <option value = "Student" class="choice">Student</option>
+               <option value = "Tourist" class="choice">Tourist</option>
+               <option value = "Businessman" class="choice">Businessman</option>
+             </select>
+	   </div> <!-- DropDown -->
+          </p>
+  </body>
+<script>
+      document.getElementById("ViewAs").onchange = function() {
+        if (this.selectedIndex!==0) {
+            window.location.href = this.value;
+        }        
+    };
+</script>
+
+</html>
