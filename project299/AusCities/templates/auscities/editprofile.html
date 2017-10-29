@@ -10,10 +10,11 @@
 </head>
 
 <body>
+	
 	<div id="header">
-			<h3> User profile </h3>
+		{% include "auscities/header.html" %}
+		<h3> User profile </h3>
 	</div>
-	{% include "auscities/header.html" %}
 	<div id="loginForm">
 			{% if request.session.logged == 1%}
 				<form method="post">

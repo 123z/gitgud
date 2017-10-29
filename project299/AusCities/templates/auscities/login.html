@@ -13,9 +13,10 @@
 
 <body>
 	<div id="header">
-			<h3> Login </h3>
+		{% include "auscities/header.html" %}
+		<h3> Login </h3>
 	</div>
-	{% include "auscities/header.html" %}
+	
 	<div id="loginForm">
 		<div>
 		<form action="/login/" method="post" id="loginForm">

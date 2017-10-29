@@ -12,9 +12,9 @@
 
 <body>
 	<div id="header">
+	{% include "auscities/header.html" %}
 			<h3> Welcome </h3>
 	</div>
-	{% include "auscities/header.html" %}
 	<div id="welcome">
 		{% if request.session.logged == 1%}
 		<p />Welcome {{ request.session.user }}.

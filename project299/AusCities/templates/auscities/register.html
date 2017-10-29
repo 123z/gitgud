@@ -11,9 +11,9 @@
 
 <body>
 	<div id="header">
+	{% include "auscities/header.html" %}
 			<h3> Register </h3>
 	</div>
-	{% include "auscities/header.html" %}
 	<div id="loginForm">
 			{% if not request.session.logged %}
 				<form action="/register/" method="post">

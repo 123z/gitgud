@@ -11,9 +11,9 @@
 
 <body>
 	<div id="header">
+	{% include "auscities/header.html" %}
 			<h3> Create admin account </h3>
 	</div>
-	{% include "auscities/header.html" %}
 	<div id="loginForm">
 			{% if request.session.logged == 2 %}
 				<form method="post">
