@@ -66,9 +66,12 @@
 	</div>
 	
 	<div id="history">
-		{% for item in historys %}
-		<a href="/location/{{ item.locationid }}">{{ item.name }} ></a>
-		{% endfor %}
+		
+		<a href="/location/{{ historyA.locationid }}">{{ historyA.name }} ></a>
+		<a href="/location/{{ historyB.locationid }}">{{ historyB.name }} ></a>
+		<a href="/location/{{ historyC.locationid }}">{{ historyC.name }} ></a>
+		<a href="/location/{{ historyD.locationid }}">{{ historyD.name }} ></a>
+		<a href="/location/{{ historyE.locationid }}">{{ historyE.name }} ></a>
 	</div>
 	
 	<div id="wrapper">
