@@ -67,6 +67,7 @@ def logout(request):
         return HttpResponseRedirect('/')
     except:
         request.session.flush()
+	return HttpResponseRedirect('/')
 	
 def createadmin(request):
     form = CreateAdmin(request.POST or None)
