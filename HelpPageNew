@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+{% load static %}
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'auscities/styleTwo.css' %}" />
+
+    <title>Smart City</title>
+</head>
+
+<body>
+    <div id="header">
+            {% include "auscities/header.html" %}
+            <h3> Help/FAQ </h3>
+    </div>
+    <div id="contentfirst">
+      <div class="helpItem">
+        <h2>Details of location or activity are incorrect?</h2>
+              <ul>
+                <li>Contact our Admin at Someonwhocares@city.com</li>
+              </ul>
+      </div>
+
+      <div class="helpItem">
+        <h2>Cannot log in or make an account?</h2>
+              <ul>
+                <li>Contact our Admin at Someonwhocares@city.com</li>
+                <li>Follow the on screen instruction when logging in/signing up. If you have forgot please use the resent password option</li>
+              </ul>
+      </div>
+
+      <div class="helpItem">
+        <h2>Want to register an activity or location with us?</h2>
+              <ul>
+                <li>Contact our Admin at Someonwhocares@city.com</li>
+                <li>Follow the on screen instruction when logging in/signing up. If you have forgot please use the resent password option</li>
+              </ul>
+      </div>
+    </div>
+    {% include "auscities/footer.html" %}
+</body>
+</html>
