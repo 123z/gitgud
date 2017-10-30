@@ -141,23 +141,8 @@ def result(request):
 	
 def location(request, id):
 	info = Location.objects.get(locationid=id)
-	history = request.session['history']
-	history = history+[id]
-	if len(history) > 6:
-		del history[0]
-	request.session['history'] = history
-	historyA = Location.objects.get(locationid=history[0])
-	historyB = Location.objects.get(locationid=history[1])
-	historyC = Location.objects.get(locationid=history[2])
-	historyD = Location.objects.get(locationid=history[3])
-	historyE = Location.objects.get(locationid=history[4])
 	context = {
         'info': info,
-		'historyA': historyA,
-		'historyB': historyB,
-		'historyC': historyC,
-		'historyD': historyD,
-		'historyE': historyE,
     }
 	return render(request, 'auscities/location.html', context)
 	
