@@ -11,19 +11,21 @@
 
 <body>
 	<div id="header">
-	{% include "auscities/header.html" %}
+			{% include "auscities/header.html" %}
 			<h3> Create admin account </h3>
 	</div>
-	<div id="loginForm">
-			{% if request.session.logged == 2 %}
-				<form method="post">
-				{% csrf_token %}
-				{{ form.as_p}}
-				<input type="submit" value="Create account"/>
-				</form>
-			{% else %}
-				Only administrators have access to this page!
-			{% endif %}
+	<div id="contentfirst">
+		<div id="loginForm">
+				{% if request.session.logged == 2 %}
+					<form method="post">
+					{% csrf_token %}
+					{{ form.as_p}}
+					<input type="submit" value="Create account"/>
+					</form>
+				{% else %}
+					Only administrators have access to this page!
+				{% endif %}
+		</div>
 	</div>
 	{% include "auscities/footer.html" %}
 </body>

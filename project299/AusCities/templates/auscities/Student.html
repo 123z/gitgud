@@ -13,64 +13,21 @@
 
 <body>
 	<div id="header">
-	{% include "auscities/header.html" %}
+		{% include "auscities/header.html" %}
 		<h3>You're Viewing Student Results</h3>
 	</div>
 	<div id="contentfirst">
-		<h4>Most Relevant Student Information</h4>
 		<table>
-			<th>name</th>
-			<th>address</th>
+			<th class="left">name</th>
+			<th class="left">address</th>
 			<th>city</th>
-			<th>phone number</th>
-			<th>email address</th>
 			<th>Location type</th>
-			
-			{% for item in Student_college %}
-			<tr>
-			
-				<td><a href="/location/{{ item.locationid }}">{{ item.name }}</a></td>
-				<td>{{ item.address }}</td>
-				<td>{{ item.city }}</td>
-				<td>{{ item.phonenumber }}</td>
-				<td>{{ item.emailaddress }}</td>
-				<td>{{ item.locationtype }}</td>
-			</tr>
-			{% endfor %}
-			{% for item in Student_library %}
-			<tr>
-			
-				<td><a href="/location/{{ item.locationid }}">{{ item.name }}</a></td>
-				<td>{{ item.address }}</td>
-				<td>{{ item.city }}</td>
-				<td>{{ item.phonenumber }}</td>
-				<td>{{ item.emailaddress }}</td>
-				<td>{{ item.locationtype }}</td>
-			</tr>
-			{% endfor %}
-			
-		</table>
-			<br>
-			<br>
-			<h4>Other City Information</h4>
-			
-		<table>
-			<th>name</th>
-			<th>address</th>
-			<th>city</th>
-			<th>phone number</th>
-			<th>email address</th>
-			<th>Location type</th>
-			
 			
 			{% for item in location_info %}
 			<tr>
-			
-				<td><a href="/location/{{ item.locationid }}">{{ item.name }}</a></td>
-				<td>{{ item.address }}</td>
+				<td class="left"><a href="/location/{{ item.locationid }}">{{ item.name }}</a></td>
+				<td class="left">{{ item.address }}</td>
 				<td>{{ item.city }}</td>
-				<td>{{ item.phonenumber }}</td>
-				<td>{{ item.emailaddress }}</td>
 				<td>{{ item.locationtype }}</td>
 			</tr>
 			{% endfor %}

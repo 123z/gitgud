@@ -11,19 +11,21 @@
 
 <body>
 	<div id="header">
-	{% include "auscities/header.html" %}
+			{% include "auscities/header.html" %}
 			<h3> Register </h3>
 	</div>
-	<div id="loginForm">
-			{% if not request.session.logged %}
-				<form action="/register/" method="post">
-				{% csrf_token %}
-				{{ form.as_table}}
-				<input type="submit" value="Register"/>
-				</form>
-			{% elif request.session.logged %}
-				Logout to create a new account.
-			{% endif %}
+	<div id="contentfirst">
+		<div id="loginForm">
+				{% if not request.session.logged %}
+					<form action="/register/" method="post">
+					{% csrf_token %}
+					{{ form.as_p}}
+					<input type="submit" value="Register"/>
+					</form>
+				{% elif request.session.logged %}
+					Logout to create a new account.
+				{% endif %}
+		</div>
 	</div>
 	{% include "auscities/footer.html" %}
 </body>

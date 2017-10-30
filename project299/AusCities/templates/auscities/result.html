@@ -19,6 +19,8 @@
 	
 	<div id="contentfirst">
 		<div id="selectContainer">
+			{% include "auscities/viewas.html" %}
+			<hr>
 			<form id="search" method="post">
 				{% csrf_token %}
 				{{ form.Name }}
@@ -26,7 +28,6 @@
 				{{ form.Type }}
 				<input type="submit" value="Search"/>
 			</form>
-			{% include "auscities/viewas.html" %}
 		</div>
 		<table>
 				{% if bool %}

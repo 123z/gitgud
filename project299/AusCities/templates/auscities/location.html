@@ -19,7 +19,7 @@
 		geocoder = new google.maps.Geocoder();
 		var latlng = new google.maps.LatLng(0,0);
 		var myOptions = {
-		  zoom: 10,
+		  zoom: 13,
 		  center: latlng,
 		mapTypeControl: true,
 		mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
@@ -54,8 +54,6 @@
 		}
 	  }
 	</script>
-
-	<title>Smart City</title>
 </head>
 
 
@@ -66,9 +64,12 @@
 	</div>
 	
 	<div id="history">
-		{% for item in history_tabs %}
-		<a href="/location/{{ item.locationid }}">{{ item.name }} ></a>
-		{% endfor %}
+		
+		<a href="/location/{{ historyA.locationid }}">{{ historyA.name }} ></a>
+		<a href="/location/{{ historyB.locationid }}">{{ historyB.name }} ></a>
+		<a href="/location/{{ historyC.locationid }}">{{ historyC.name }} ></a>
+		<a href="/location/{{ historyD.locationid }}">{{ historyD.name }} ></a>
+		<a href="/location/{{ historyE.locationid }}">{{ historyE.name }} ></a>
 	</div>
 	
 	<div id="wrapper">

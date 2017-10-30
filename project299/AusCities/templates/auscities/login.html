@@ -13,23 +13,22 @@
 
 <body>
 	<div id="header">
-		{% include "auscities/header.html" %}
-		<h3> Login </h3>
+			{% include "auscities/header.html" %}
+			<h3> Login </h3>
 	</div>
-	
-	<div id="loginForm">
-		<div>
-		<form action="/login/" method="post" id="loginForm">
-			{% csrf_token %}
-			{% if not request.session.logged %}
-			{{ form.as_p }}
-			<input type="submit" value="Login"/>
-			{% elif request.session.logged %}
-			</p>You are already logged in.
-			Username: {{ request.session.user }}
-			{% endif %}
-		</form>
-	</div>
+	<div id="contentfirst">
+		<div id="loginForm">
+			<form action="/login/" method="post">
+				{% csrf_token %}
+				{% if not request.session.logged %}
+				{{ form.as_p }}
+				<input type="submit" value="Login"/>
+				{% elif request.session.logged %}
+				You are already logged in.
+				Username: {{ request.session.user }}
+				{% endif %}
+			</form>
+		</div>
 	</div>
 {% include "auscities/footer.html" %}
 </body>

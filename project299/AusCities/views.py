@@ -18,37 +18,26 @@ def about(request):
     return render(request, 'auscities/about.html')
 
 def Businessman(request):
-    Businessman_hotel = Location.objects.filter(locationtype = 'hotel')
-    Businessman_industry = Location.objects.filter(locationtype = 'industry')
-    location_info = Location.objects.all()
-	
+    location_info = Location.objects.exclude(locationtype = 'college').exclude(locationtype = 'library')
 	
     context = {
-        'Businessman_hotel': Businessman_hotel,
-        'Businessman_industry': Businessman_industry,
         'location_info': location_info,
 		
     }
     return render(request, 'auscities/Businessman.html', context)
 	
 def Tourist(request):
-	Tourist_hotel = Location.objects.filter(locationtype = 'hotel')
-	location_info = Location.objects.all()
+	location_info = Location.objects.exclude(locationtype = 'industry').exclude(locationtype = 'college').exclude(locationtype = 'library')
+	
 	context = {
-		'Tourist_hotel': Tourist_hotel,
-                'location_info': location_info,
-		
+        'location_info': location_info,
 	}
 	return render(request, 'auscities/Tourist.html', context)
 	
 def Student(request):
-	Student_college = Location.objects.filter(locationtype = 'college')
-	Student_library = Location.objects.filter(locationtype = 'library')
-	location_info = Location.objects.all()
+	location_info = Location.objects.exclude(locationtype = 'hotel').exclude(locationtype = 'industry')
 	context = {
-		'Student_college': Student_college,
-		'Student_library': Student_library,
-                'location_info': location_info,
+        'location_info': location_info,
 	}
 	return render(request, 'auscities/Student.html', context)
 
@@ -67,7 +56,7 @@ def logout(request):
         return HttpResponseRedirect('/')
     except:
         request.session.flush()
-	return HttpResponseRedirect('/')
+        return HttpResponseRedirect('/')
 	
 def createadmin(request):
     form = CreateAdmin(request.POST or None)
@@ -152,10 +141,23 @@ def result(request):
 	
 def location(request, id):
 	info = Location.objects.get(locationid=id)
-	history_tabs = Location.objects.all()
+	history = request.session['history']
+	history = history+[id]
+	if len(history) > 6:
+		del history[0]
+	request.session['history'] = history
+	historyA = Location.objects.get(locationid=history[0])
+	historyB = Location.objects.get(locationid=history[1])
+	historyC = Location.objects.get(locationid=history[2])
+	historyD = Location.objects.get(locationid=history[3])
+	historyE = Location.objects.get(locationid=history[4])
 	context = {
         'info': info,
-		'history_tabs': history_tabs,
+		'historyA': historyA,
+		'historyB': historyB,
+		'historyC': historyC,
+		'historyD': historyD,
+		'historyE': historyE,
     }
 	return render(request, 'auscities/location.html', context)
 	

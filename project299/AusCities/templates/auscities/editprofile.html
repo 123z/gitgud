@@ -10,21 +10,22 @@
 </head>
 
 <body>
-	
 	<div id="header">
-		{% include "auscities/header.html" %}
-		<h3> User profile </h3>
+			{% include "auscities/header.html" %}
+			<h3> User profile - {{ request.session.user }} </h3>
 	</div>
-	<div id="loginForm">
-			{% if request.session.logged == 1%}
-				<form method="post">
-				{% csrf_token %}
-				{{ form.as_table}}
-				<input type="submit" value="Save changes"/>
-				</form>
-			{% else %}
-				Login to edit your details
-			{% endif %}
+	<div id="contentfirst">
+		<div id="loginForm">
+				{% if request.session.logged == 1%}
+					<form method="post">
+					{% csrf_token %}
+					{{ form.as_table}}
+					<input type="submit" value="Save changes"/>
+					</form>
+				{% else %}
+					Login to edit your details
+				{% endif %}
+		</div>
 	</div>
 	{% include "auscities/footer.html" %}
 </body>

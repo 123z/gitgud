@@ -14,65 +14,20 @@
 <body>
 	<div id="header">
 	<!---page heading --->
+	<!---imports header template 'see header.html in templates' --->
+		{% include "auscities/header.html" %}
 		<h3>You're Viewing Businessman Results</h3>
 	</div>
-	<!---imports header template 'see header.html in templates' --->
-	{% include "auscities/header.html" %}
 	<div id="contentfirst">
 	
 	<!---table heading 'relevent information task criteria for businessman information'--->
-	<h4> Most Relevant Businessman Information </h4>
 	<!---table titles --->
 	<!---folowing code is for table 1 . it differentiates from table 2 that shows city information--->
 	<!---start table 1--->
 		<table>
-			<th>name</th>
-			<th>address</th>
+			<th class="left">name</th>
+			<th class="left">address</th>
 			<th>city</th>
-			<th>phone number</th>
-			<th>email address</th>
-			<th>Location type</th>
-			<!---for loop referencing variable from 'views.py, function businessman' 
-				basically shows hotel information specifically--->
-			{% for item in Businessman_hotel %}
-			<tr>
-				<!---pulling requested data from database --->
-				<td><a href="/location/{{ item.locationid }}">{{ item.name }}</a></td>
-				<td>{{ item.address }}</td>
-				<td>{{ item.city }}</td>
-				<td>{{ item.phonenumber }}</td>
-				<td>{{ item.emailaddress }}</td>
-				<td>{{ item.locationtype }}</td>
-			</tr>
-			{% endfor %}
-			
-			<!---for loop referencing variable from 'views.py, function businessman'
-				basically shows industry information specifically--->
-			{% for item in Businessman_industry %}
-			<tr>
-			
-				<td><a href="/location/{{ item.locationid }}">{{ item.name }}</a></td>
-				<td>{{ item.address }}</td>
-				<td>{{ item.city }}</td>
-				<td>{{ item.phonenumber }}</td>
-				<td>{{ item.emailaddress }}</td>
-				<td>{{ item.locationtype }}</td>
-			</tr>
-			{% endfor %}
-		</table>
-		<!---end table 1 --->
-			<br>
-			<br>
-		<!--- title for all city information--->
-			<h4>Other City Information</h4>
-		<!---start table 2 --->	
-		<!---table displays all city information--->
-		<table>
-			<th>name</th>
-			<th>address</th>
-			<th>city</th>
-			<th>phone number</th>
-			<th>email address</th>
 			<th>Location type</th>
 			
 			<!---for loop referencing variable from 'views.py, function businessman'
@@ -80,11 +35,9 @@
 			{% for item in location_info %}
 			<tr>
 			
-				<td><a href="/location/{{ item.locationid }}">{{ item.name }}</a></td>
-				<td>{{ item.address }}</td>
+				<td class="left"><a href="/location/{{ item.locationid }}">{{ item.name }}</a></td>
+				<td class="left">{{ item.address }}</td>
 				<td>{{ item.city }}</td>
-				<td>{{ item.phonenumber }}</td>
-				<td>{{ item.emailaddress }}</td>
 				<td>{{ item.locationtype }}</td>
 			</tr>
 			{% endfor %}
