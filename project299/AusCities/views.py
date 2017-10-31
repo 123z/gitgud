@@ -22,7 +22,6 @@ def Businessman(request):
 	
     context = {
         'location_info': location_info,
-		
     }
     return render(request, 'auscities/Businessman.html', context)
 	
@@ -40,8 +39,6 @@ def Student(request):
         'location_info': location_info,
 	}
 	return render(request, 'auscities/Student.html', context)
-
-	
 
 def index(request):
     return render(request, 'auscities/index.html')
@@ -148,19 +145,23 @@ def location(request, id):
 	
 def searched(request):
 	global filtered, lname, lcity, ltype
-	bool = True
-	form = SearchForm(request.POST)
-	if form.is_valid():
-		lname = form.cleaned_data['Name']
-		lcity = form.cleaned_data['City']
-		ltype = form.cleaned_data['Type']
-		if lname == "" and lcity == "" and ltype == "":
-			bool = False
-		filtered = Location.objects.filter(Q(name=lname) | Q(city=lcity) | Q(locationtype=ltype))
+	bool = False
+	if request.method=="POST":
+		form = SearchForm(request.POST)
+		if form.is_valid():
+			lname = form.cleaned_data['Name']
+			lcity = form.cleaned_data['City']
+			ltype = form.cleaned_data['Type']
+			bool = True
+			filtered = Location.objects.filter(Q(name=lname) | Q(city=lcity) | Q(locationtype=ltype))
+		else:
+			filtered = ""
+	else:
 		form = SearchForm()
+		filtered = ""
 	context = {
 		'filtered': filtered,
 		'form': form,
 		'bool': bool,
 	}
-	return render(request, 'auscities/result.html', context)
+	return render(request, 'auscities/result.html', context, {'form':form})

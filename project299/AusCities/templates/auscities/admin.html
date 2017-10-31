@@ -16,20 +16,22 @@
 			{% include "auscities/header.html" %}
 			<h3> Login </h3>
 	</div>
-	<div id="loginForm">
-		<div>
-		<form action="/admin/" method="post" id="adminform">
-			{% csrf_token %}
-			{% if not request.session.logged %}
-			{{ form.as_p }}
-			<input type="submit" value="Login"/>
-			{% elif request.session.logged  == 2 %}
-			</p><a href="/admin/create">Add new admin accounts</a>
-			</p><a href="/admin/add_info/">Add locations</a>
-			{% endif %}
-		</form>
-	</div>
-	</div>
+	<div id="contentfirst">
+		<div id="loginForm">
+			<div>
+			<form action="/admin/" method="post" id="adminform">
+				{% csrf_token %}
+				{% if not request.session.logged %}
+				{{ form.as_p }}
+				<input type="submit" value="Login"/>
+				{% elif request.session.logged  == 2 %}
+				</p><a href="/admin/create">Add new admin accounts</a>
+				</p><a href="/admin/add_info/">Add locations</a>
+				{% endif %}
+			</form>
+		</div>
+		</div>
+		</div>
 {% include "auscities/footer.html" %}
 </body>
 </html>

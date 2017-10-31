@@ -2,18 +2,19 @@ import logging
 from django import forms
 from django.forms import ModelForm
 from django.contrib.auth import hashers
-
+from django.db.models import Q
 
 from .models import User, Admin, Location
 #Model form for use of databases elements in the form
+
 class AddInfo(ModelForm):
     class Meta:
         model = Location
         fields = '__all__'
         widgets = {
-                'emailaddress': forms.EmailInput(attrs={'placeholder':'test'})
+                'emailaddress': forms.EmailInput(),
+                'website': forms.URLInput(),
             }
-
 
 class CreateAdmin(ModelForm):
     confirm = forms.CharField(label ='Confirm password',widget=forms.PasswordInput(attrs={'placeholder':'Re-enter your password...'}))
@@ -142,3 +143,24 @@ class SearchForm(forms.Form):
 	Name = forms.CharField(required=False, widget=forms.TextInput(attrs={'placeholder':'Name'}))
 	City = forms.CharField(required=False, widget=forms.TextInput(attrs={'placeholder':'City'}))
 	Type = forms.CharField(required=False, widget=forms.TextInput(attrs={'placeholder':'Location Type'}))
+	
+	def clean(self):
+		cleanedData = super(SearchForm, self).clean()
+		Name = cleanedData.get("Name")
+		City = cleanedData.get("City")
+		Type = cleanedData.get("Type")
+		
+		if not Name and not City and not Type:
+			raise forms.ValidationError("You need to enter something to search for a location")
+			
+		try:
+			Location.objects.get(name=Name)
+		except Location.DoesNotExist:
+			try:
+				Location.objects.filter(city=City)[:1].get()
+			except Location.DoesNotExist:
+				try:
+					Location.objects.filter(locationtype=Type)[:1].get()
+				except Location.DoesNotExist:
+					raise forms.ValidationError("No locations match your search")
+			
