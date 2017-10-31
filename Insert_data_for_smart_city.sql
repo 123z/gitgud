@@ -1,6 +1,5 @@
-use smart_city_project;
+use ENTER_NAME_OF_DATABASE;
 
-select * from location;
 
 /* Colleges added to database*/
 INSERT INTO location (name, address, city, PhoneNumber, emailAddress, locationType, website) 
