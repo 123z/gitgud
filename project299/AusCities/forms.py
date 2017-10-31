@@ -12,8 +12,18 @@ class AddInfo(ModelForm):
         model = Location
         fields = '__all__'
         widgets = {
-                'emailaddress': forms.EmailInput(),
-                'website': forms.URLInput(),
+                'emailaddress': forms.EmailInput(attrs={'placeholder':'Enter a valid e-mail.'}),
+                'name': forms.TextInput(attrs={'placeholder':'Enter a valid location name.'}),
+                'address': forms.TextInput(attrs={'placeholder':'Enter a valid address.'}),
+                'city': forms.TextInput(attrs={'placeholder':'Enter a valid city.'}),
+                'phonenumber': forms.TextInput(attrs={'placeholder':'Enter a valid phone number.'}),
+                'website': forms.URLInput(attrs={'placeholder':'Enter a valid website address.'}),
+            }
+        labels = {
+                'emailaddress': 'E-mail address',
+                'name': 'Location name',
+                'phonenumber': 'Phone number',
+                'locationtype': 'Location type',
             }
 
 class CreateAdmin(ModelForm):
