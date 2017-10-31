@@ -9,6 +9,10 @@
 		<a href="/result/"> Search </a>
 		<a href="/help/"> Help </a>
 		<a href="/user"> Edit Profile </a>
+			{% if request.session.logged  == 2 %}
+				<a href="/admin/add_info"> Add Locations </a>
+				<a href="/admin/create"> Create Admins </a>
+			{% endif %}
 		<a href="/logout/"> Log out </a>
 		{% endif %}
 	</div>
