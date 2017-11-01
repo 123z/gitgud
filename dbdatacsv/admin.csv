@@ -1,0 +1,3 @@
+adminID,firstName,lastName,emailAddress,password
+1,Cain,Kroker,admin@admin.com,pbkdf2_sha256$36000$nYWaxrVUQBnh$RrAqdRHP436RIQIAXmBgGVC1FIQ1igNGaS/NQ+2Ni9A=
+2,admin,admin,admin2@admin.com,pbkdf2_sha256$36000$BUpH2rBnYbqI$eZw+yH42jM17cLpfUYE5DjlzuS7VfGI7Y/5G9Ku/0Gw=

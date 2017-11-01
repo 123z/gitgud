@@ -1,0 +1,27 @@
+locationID,name,address,city,phoneNumber,emailAddress,locationType,website
+1,"Queensland University of Technology","2 George ST",Brisbane,31382000,askqut@qut.edu.au,College,https://www.qut.edu.au/
+2,"BOQ Private Banking","Level 6, 100 Skyring Ter, NewStead",Brisbane,1300764439,NULL,Industry,http://www.boq.com.au/personal_privatebank_contact.htm
+3,"University of Queensland","The University of Queensland St Lucia",Brisbane,3365111,askus@library.uq.edu.au,College,http://www.uq.edu.au/
+4,"Brisbane Square Library","166 George ST ",Brisbane,34034166,NULL,Library,https://www.brisbane.qld.gov.au/facilities-recreation/libraries
+5,"West End Library","178-180 Boundary ST",Brisbane,34038620,NULL,Library,https://www.brisbane.qld.gov.au/facilities-recreation/libraries
+6,"QLD Department of Health","33 Charlotte Street",Brisbane,32340111,NULL,Industry,https://www.health.qld.gov.au/
+7,"Queensland University Of Technology","2 George Street, Brisbane City QLD 4000",Brisbane,731382000,askqut@qut.edu.au.,College,http://www.qut.edu.au/
+8,UQ,"The University of QueenslandSt Lucia QLD 4072",Brisbane,733651111,askus@library.uq.edu.au,College,http://www.uq.edu.au/
+9,"Brisbane Square Liberary","266 George Street, Brisbane City QLD 4000",Brisbane,724034166,NULL,Library,https://www.brisbane.qld.gov.au/facilities-recreation/libraries
+10,"West End Library","178-180 Boundary Street, West End QLD 4101",Brisbane,734038620,NULL,Library,https://www.brisbane.qld.gov.au/facilities-recreation/libraries
+11,"ibis Styles Brisbane Elizabeth Street","40 Elizabeth Street, Brisbane City QLD 4000",Brisbane,733379000,H8835@accor.com,Hotel,https://www.accorhotels.com/gb/hotel-8835-ibis-styles-brisbane-elizabeth-street-/index.shtml
+12,"Gambaro Hotel","33 Caxton Street, Petrie Terrace QLD 4000",Brisbane,733699500,reservations@gambarohotel.com.au,Hotel,gambarohotel.com.au/
+13,"BOQ Private Banking","Level 6, 100 Skyring Terrace, Newstead QLD 4006",Brisbane,1300764439,NULL,Industry,http://www.boq.com.au/personal_privatebank_contact.htm
+14,"QLD Department of Health","33 Charlotte Street, Brisbane City QLD 4000",Brisbane,732340111,NULL,Industry,https://www.health.qld.gov.au/
+15,"City Botanic Gardens","147 Alice  Street, Brisbane City QLD 4000",Brisbane,734038888,NULL,Park,https://www.brisbane.qld.gov.au/facilities-recreation/parks-venues/parks?
+16,"Roma Street Parklands","1 Parkland Boulevard, Brisbane City QLD 4000",Brisbane,734038888,NULL,Park,https://www.brisbane.qld.gov.au/facilities-recreation/parks-venues/parks?
+17,"Lone Pine Koala Sanctuary","708 Jesmond Road, Fig Tree Pocket QLD 4069",Brisbane,733781366,service@koala.net,Zoo,https://koala.net/en-au/
+18,"Walkabout Creek Discovery Centre","60 Mount Nebo Road, The Gap QLD 4061",Brisbane,731643600,NULL,Zoo,https://www.npsr.qld.gov.au/parks/daguilar/walkabout-creek.htm
+19,"Queensland Art Gallery","Stanley Place Cultural Precinct, South Bank QLD 4101",Brisbane,738407303,gallery@qagoma.qld.gov.au,Museum,https://www.qagoma.qld.gov.au/
+20,"Museum of Brisbane","64 Adelaide Street, Brisbane City QLD 4000",Brisbane,733390800,info@museumofbrisbane.com.au,Museum,http://www.museumofbrisbane.com.au/
+21,"Moda Restaurant","12 Edward Street, Brisbane City QLD 4000",Brisbane,732217655,NULL,Restaurant,http://www.modarestaurant.com.au/
+22,"Ecco Bistro","100 Boundary Street, Brisbane City QLD 4000",Brisbane,738318344,mail@eccobistro.com,Restaurant,http://eccobistro.com.au/
+23,"MacArthur Central Shopping Centre","255 Queen St, Brisbane City",Brisbane,730072300,info@macarthurcentral.com,Mall,http://www.macarthurcentral.com
+24,Wintergarden,"171-209 Queen Street Mall Brisbane QLD 4000",Brisbane,732299755,NULL,Mall,http://wgarden.com.au/
+25,"Sheraton on the Park","161 Elizabeth Street",Sydney,"9286 6000",NULL,Hotel,http://www.sheratonontheparksydney.com
+26,"University of Sydney",Camperdown,Sydney,NULL,NULL,College,NULL
